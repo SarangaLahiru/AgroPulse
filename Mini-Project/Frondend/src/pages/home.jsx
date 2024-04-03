@@ -13,7 +13,12 @@ export default function Home() {
     try{
       const response =await axioaClient.get('/data');
       console.log(response)
+<<<<<<< HEAD
       toast.success("ok")
+=======
+
+      toast.success("ok");
+>>>>>>> f08df9eb2fca9f13db5c009d993ba4e57d79152a
     }catch(error){
 
       console.log(error)
