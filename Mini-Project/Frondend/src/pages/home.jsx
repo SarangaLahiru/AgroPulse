@@ -13,23 +13,23 @@ export default function Home() {
     try{
       const response =await axioaClient.get('/data');
       console.log(response)
+      toast.success("ok")
     }catch(error){
 
       console.log(error)
       console.log("jhvhjv")
+      toast.warn("not ok")
 
     }
   }
 
-    const notify=()=>{
-        toast.success("ok")
-    };
 
   return (
     <div>
         <h2 className=''>home</h2>
 
 <Button onClick={fetchData}>ok</Button>
+
 
         
       
