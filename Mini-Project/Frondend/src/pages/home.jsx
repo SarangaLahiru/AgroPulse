@@ -13,6 +13,8 @@ export default function Home() {
     try{
       const response =await axioaClient.get('/data');
       console.log(response)
+
+      toast.success("ok");
     }catch(error){
 
       console.log(error)
