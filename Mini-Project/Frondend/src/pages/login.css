@@ -1,0 +1,15 @@
+#loginbtn{
+    background-color: #014802;
+    color: white;
+    font-size: 15px;
+    padding: 12px 18px;
+    border-radius: 10px;
+}
+.loginbtn:hover{
+    background-color: #014802d0;
+    color: white;
+}
+
+.textInput:focus{
+    background-color: #014802;
+}
