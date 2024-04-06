@@ -1,0 +1,121 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+header{
+    display: flex;
+    width: 100%;
+    height: 94px;
+    align-items: center;
+    justify-content: center;
+    /* background-color: brown; */
+    position: relative;
+    /* font-family: "Poppins", sans-serif; */
+}
+header h2 img{
+    position: absolute;
+    top: 0px;
+    left: 50px;
+}
+header .box{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    top: 20px;
+    
+    
+}
+header h2{
+    flex-basis: 20%;
+}
+header  li{
+    list-style: none;
+    margin: 0px 30px;
+    border-bottom: 3px #ffffff solid;
+    transition: all 0.5s ease;
+    border-bottom-width: 3px;
+}
+
+
+header .box li Button{
+    
+    color: rgb(85, 85, 85);
+    border-radius: 10px;
+    padding: 8px 26px;
+    display: flex;
+    transition: all 0.5s ease-in;
+    font-size: 23px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #014802;
+    
+}
+header .box li Button:hover{
+    background-color: #0148021b;
+    transition: all 0.1s ease-in;
+}
+header .box li .lang{
+    background-color: #014802;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    transition: all 0.5s ease-in;
+    font-size: 24px;
+    width: 220px;
+    
+}
+header .box li .lang:hover{
+    background-color: #014802;
+}
+header .box li .langIcon{
+    
+    margin: 0px 5px;
+    position: relative;
+    left: 20px;
+    
+
+}
+header .menuicon{
+    visibility: hidden;
+    position: absolute;
+    right: 20px;
+    font-size: 35px;
+    top: 50px;
+    color: #014802;
+}
+.selected{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: 3px #014802 solid;
+    
+}
+@media (max-width: 640px) {
+    header .box {
+        display: none;
+    }
+}
+@media (max-width: 1000px) {
+    header .box {
+        display: none;
+    }
+    header .menuicon{
+        visibility: visible;
+    }
+}
+@media (max-width: 1068px) {
+    header .box  {
+        margin-left: 200px;
+    }
+}
+@media (max-width: 1200px) {
+    header .box  {
+        transform: scale(0.8);
+    }
+}
+@media (max-width: 1400px) {
+    header .box li {
+        margin: 0px 5px;
+    }
+}
+
