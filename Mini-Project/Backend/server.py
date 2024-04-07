@@ -108,27 +108,7 @@ def signin():
                     }), 200
 
 
-    # Check if the request contains a file
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file provided'}), 400
-
-    file = request.files['file']
-
-    # Check if the file is an image
-    if file.filename == '' or not file.filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-        return jsonify({'error': 'Invalid file format'}), 400
-
-    # Save the file temporarily
-    file_path = '/tmp/' + file.filename
-    file.save(file_path)
-
-    # Extract user data from the image
-    user_data = extract_user_data(file_path)
-
-    # Insert user data into MongoDB
-    users_collection.insert_one(user_data)
-
-    return jsonify({'message': 'User signed up successfully', 'user': user_data}), 201
+   
 
 if __name__ == '__main__':
     app.run(debug=True)
