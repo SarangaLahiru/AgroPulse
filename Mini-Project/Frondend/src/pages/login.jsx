@@ -2,10 +2,39 @@
 import Button from '@mui/material/Button';
 import { TextField, Grid, Typography, Container } from '@mui/material';
 import './login.css';
-
+import { ToastContainer, toast } from 'react-toastify';
 import FadeIn from 'react-fade-in';
+import { createRef } from 'react';
+import axioaClient from '../axios-Client';
 
 export default function Login() {
+  
+  const idRef = createRef();
+  const passwordRef = createRef();
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+
+    const payload = {
+     
+      id: idRef.current.value,
+      password: passwordRef.current.value,
+     
+    };
+
+    axioaClient.post('/signin', payload)
+      .then(response => {
+        console.log(response.data.message); // Handle success response
+        console.log("gfghfgh")
+        toast.success(response.data.message)
+      })
+      .catch(error => {
+        console.log(error.response.data.error); // Handle error
+        console.log("dsdfsdf")
+        toast.error(error.response.data.error)
+        
+      });
+  };
     return (
       <>
         
@@ -24,7 +53,7 @@ export default function Login() {
           </div>
   
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
+            <form className="space-y-6" action="#" method="POST" onSubmit={handleSubmit}>
            
           <FadeIn>
           <Grid item xs={12}>
@@ -35,6 +64,7 @@ export default function Login() {
               type="text"
               className='textInput'
               color="success"
+              inputRef={idRef}
             />
           </Grid>
           </FadeIn>
@@ -49,6 +79,7 @@ export default function Login() {
               type="password"
               className='textInput'
               color="success"
+              inputRef={passwordRef}
             />
           </Grid>
           </FadeIn>
@@ -69,12 +100,13 @@ export default function Login() {
             <p className="mt-10 text-center text-sm text-gray-500">
               If you not a member?{' '}
               <a href="/signup" className="font-semibold leading-6 text-green-600 hover:text-green-500">
-                Sign in
+                Sign up
               </a>
             </p>
           </div>
         </div>
        </FadeIn>
+
       </>
     )
   }
