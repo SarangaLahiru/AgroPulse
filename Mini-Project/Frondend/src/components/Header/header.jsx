@@ -183,9 +183,9 @@ export default function Header() {
                       sx={{ color: '#014802',width:"300px",  }}
                     >
                       <option value="" disabled>Select a language</option>
-                      <option value="english" sx={{ color: '#014802',bgcolor:'red' }}>English</option>
-                      <option value="spanish">Tamil</option>
-                      <option value="spanish">English</option>
+                      <option value="ENGLISH" sx={{ color: '#014802',bgcolor:'red' }}>English</option>
+                      <option value="TAMIL">Tamil</option>
+                      <option value="SINHALA">Sinhala</option>
                     </Select>
                   </FormControl>
                 </Box>

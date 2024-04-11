@@ -6,11 +6,15 @@ import pytesseract
 from PIL import Image
 import re
 import bcrypt
+from vonage import Client, Sms
 
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+
+client = Client(key="5e68450e", secret="CX3mEEXHz1cIzQZn")
+sms = Sms(client)
 # MongoDB connection
 client = MongoClient('mongodb://localhost:27017/')
 db = client['usersdb']
@@ -145,7 +149,60 @@ def perform_text_detection():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-   
+@app.route('/api/signupWithImage', methods=['POST'])
+def signupImage():
+    user_data = request.json
+    
+    
+    required_fields = ['name', 'id', 'Phone','password']
+    # Validation
+    for field in required_fields:
+      if field not in user_data or not user_data[field]:
+        return jsonify({'error': f'Missing required field: {field}'}), 400
+    
+    # Check if the email is already registered
+    
+    if users_collection.find_one({'id': user_data['id']}):
+        return jsonify({'error': 'National ID card already used'}), 400
+    
+    # Check if the phone number starts with "94"
+    if not user_data['Phone'].startswith("+94"):
+        return jsonify({'error': 'Phone number must start with "+94"'}), 400
+    
+    
+    
+     # Hash the password
+    user_password=user_data['password']
+    hashed_password = bcrypt.hashpw(user_data['password'].encode('utf-8'), bcrypt.gensalt())
+    user_data['password'] = hashed_password.decode('utf-8')
+    
+    users_collection.insert_one(user_data)
+    # Insert user data into MongoDB
+    success = send_sms_message(user_data['Phone'], f"Your new password is: {user_password}")
+    if success:
+        return jsonify({'message': 'User signed up successfully'}), 201
+    else:
+        return jsonify({'error': 'Failed to send SMS. Please try again later.'}), 500
+
+def send_sms_message(phone, message):
+    try:
+        # Send the SMS message
+        response = sms.send_message({
+            "from": "Vonage APIs",
+            "to": phone,
+            "text": message
+        })
+        
+        # Check if the message was sent successfully
+        if response["messages"][0]["status"] == "0":
+            return True
+        else:
+            print(f"Failed to send SMS: {response['messages'][0]['error-text']}")
+            return False
+    except Exception as e:
+        print(f"Failed to send SMS: {e}")
+        return False
+
 
 if __name__ == '__main__':
     app.run(debug=True)
