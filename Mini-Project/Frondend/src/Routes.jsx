@@ -4,6 +4,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/login";
 import { createBrowserRouter ,Navigate} from "react-router-dom";
 import App from "./App";
+import ImageUpload from "./pages/ImageUpload";
 
 const router=createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router=createBrowserRouter([
             {
                 path:'/signup',
                 element:<Signup/>
+            },
+            {
+                path:'/image',
+                element:< ImageUpload/>
             },
             
         ]

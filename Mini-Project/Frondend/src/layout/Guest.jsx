@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link, Navigate, Outlet} from "react-router-dom";
 import { useStateContext } from '../context/contextProvider'
-import FadeIn from 'react-fade-in';
 
 export default function Guest() {
     const {setToken,token}=useStateContext();

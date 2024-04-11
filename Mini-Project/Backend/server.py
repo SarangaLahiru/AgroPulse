@@ -2,6 +2,9 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from pymongo import MongoClient
 import re
+import pytesseract
+from PIL import Image
+import re
 import bcrypt
 
 
@@ -35,7 +38,20 @@ def validate_password(password):
         return False
     
     return True
-
+def extract_name_and_mobile(ocr_text):
+    # Define the regular expression patterns for extracting name and mobile number
+    name_pattern = re.compile(r'Name:\s*(.*)', re.IGNORECASE)
+    mobile_pattern = re.compile(r'No::\s*(.*)', re.IGNORECASE)
+    
+    # Search for the patterns in the OCR text
+    name_match = name_pattern.search(ocr_text)
+    mobile_match = mobile_pattern.search(ocr_text)
+    
+    # Extract the name and mobile number if found
+    name = name_match.group(1).strip() if name_match else None
+    mobile = mobile_match.group(1).strip() if mobile_match else None
+    
+    return name, mobile
 @app.route('/api/data')
 def get_data():
     data = {'message': 'Hello from Flask API'}
@@ -107,6 +123,27 @@ def signin():
         }
                     }), 200
 
+@app.route('/api/perform_text_detection', methods=['POST'])
+def perform_text_detection():
+    try:
+        # Get the uploaded image file
+        image_file = request.files['image']
+
+        # Perform OCR
+        img = Image.open(image_file)
+        ocr_text = pytesseract.image_to_string(img)
+
+        # Extract name and mobile number from OCR text
+        name, mobile = extract_name_and_mobile(ocr_text)
+
+        # Return the extracted values as JSON response
+        return jsonify({
+            'name': name,
+            'mobile': mobile
+        })
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
    
 
