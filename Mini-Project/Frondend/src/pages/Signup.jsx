@@ -13,6 +13,7 @@ export default function Signup() {
   const emailRef = createRef();
   const passwordRef = createRef();
   const confirmPasswordRef = createRef();
+  const {setToken,setUser}=useStateContext();
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
@@ -30,6 +31,8 @@ export default function Signup() {
         console.log(response.data.message); // Handle success response
         console.log("gfghfgh")
         toast.success(response.data.message)
+
+        setToken(123)
       })
       .catch(error => {
         console.log(error.response.data.error); // Handle error

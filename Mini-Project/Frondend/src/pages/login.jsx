@@ -6,11 +6,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import FadeIn from 'react-fade-in';
 import { createRef } from 'react';
 import axioaClient from '../axios-Client';
+import { useStateContext } from '../context/contextProvider';
 
 export default function Login() {
   
   const idRef = createRef();
   const passwordRef = createRef();
+  const {setToken,setUser}=useStateContext();
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
@@ -27,6 +29,8 @@ export default function Login() {
         console.log(response.data.message); // Handle success response
         console.log("gfghfgh")
         toast.success(response.data.message)
+
+        setToken(123);
       })
       .catch(error => {
         console.log(error.response.data.error); // Handle error
