@@ -2,11 +2,15 @@ import Button from '@mui/material/Button';
 import { TextField, Grid } from '@mui/material';
 import './login.css';
 import FadeIn from 'react-fade-in';
-import { createRef } from 'react';
+import { createRef, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axiosClient from '../axios-Client'; // Assuming you have an axios client configured
 import { useStateContext } from '../context/contextProvider';
+// import { GoogleLogin } from '@react-oauth/google';
 import { GoogleLogin } from 'react-google-login';
+import axioaClient from '../axios-Client';
+import { jwtDecode } from "jwt-decode";
+
 
 
 export default function Signup() {
@@ -46,6 +50,11 @@ export default function Signup() {
         
       });
   };
+  const handleGoogleSuccess = (response) => {
+    const token = response.tokenId;
+     console.log('Token:', token);
+  };
+
   
   
 
@@ -135,10 +144,15 @@ export default function Signup() {
                 </div>
               </FadeIn>
             </form>
-           
+            <div className='mt-2 ml-4'>
+            <GoogleLogin
+      clientId="796659410119-6p76ghbvl4tmcpmngk1v97u8h0n2g6d0.apps.googleusercontent.com"
+      onSuccess={handleGoogleSuccess}
+      cookiePolicy={'single_host_origin'}
+    />
+            </div>
 
-
-            <p className="mt-10 text-center text-sm text-gray-500">
+            <p className="mt-5 text-center text-sm text-gray-500">
               If you already have an account?{' '}
               <a href="/login" className="font-semibold leading-6 text-green-600 hover:text-green-500">
                 Sign in

@@ -14,7 +14,7 @@ from google.auth.transport import requests
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-GOOGLE_CLIENT_ID = "796659410119-kmmb44g4jgv3j9mdt3tb0gn6qvlpuhtr.apps.googleusercontent.com"
+GOOGLE_CLIENT_ID = "796659410119-6p76ghbvl4tmcpmngk1v97u8h0n2g6d0.apps.googleusercontent.com"
 
 client = Client(key="5e68450e", secret="CX3mEEXHz1cIzQZn")
 sms = Sms(client)
@@ -203,6 +203,7 @@ def signupImage():
         return jsonify({'error': 'Failed to send SMS. Please try again later.'}), 500
 
 def send_sms_message(phone, message):
+
     try:
         # Send the SMS message
         response = sms.send_message({
@@ -244,5 +245,19 @@ def send_sms_message(phone, message):
     
     except ValueError as e:
         return jsonify({'error': 'Invalid Google ID token'}), 400
+
+@app.route('/api/google_signup', methods=['POST'])
+def signup_google():
+    token = request.json.get('token')
+    if not token:
+        return jsonify({'error': 'Token is required'}), 400
+    
+    try:
+        id_info = id_token.verify_oauth2_token(token, requests.Request(), GOOGLE_CLIENT_ID)
+        # You can extract user details from id_info and save to database
+        # Example: name = id_info['name'], email = id_info['email']
+        return jsonify({'message': 'User signed up successfully'}), 200
+    except ValueError as e:
+        return jsonify({'error': 'Invalid token'}), 400
 if __name__ == '__main__':
     app.run(debug=True)
