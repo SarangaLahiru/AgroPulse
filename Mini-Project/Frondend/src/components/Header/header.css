@@ -61,8 +61,8 @@ header .box li .lang{
     border-radius: 10px;
     display: flex;
     transition: all 0.5s ease-in;
-    font-size: 24px;
-    width: 220px;
+    font-size: 23px;
+    width: 200px;
     
 }
 header .box li .lang:hover{
@@ -75,6 +75,10 @@ header .box li .langIcon{
     left: 20px;
     
 
+}
+header .box  .userIcon {
+    background-color: none;
+    
 }
 header .menuicon{
     visibility: hidden;

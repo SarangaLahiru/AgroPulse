@@ -29,8 +29,11 @@ export default function Login() {
         console.log(response.data.message); // Handle success response
         console.log("gfghfgh")
         toast.success(response.data.message)
+        setToken(123)
+        setUser(response.data.user)
+        console.log(response.data.user)
 
-        setToken(123);
+        
       })
       .catch(error => {
         console.log(error.response.data.error); // Handle error

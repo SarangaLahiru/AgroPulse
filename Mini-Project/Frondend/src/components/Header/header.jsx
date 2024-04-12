@@ -22,14 +22,24 @@ import { RiMenu2Fill } from "react-icons/ri";
 import { TiArrowSortedDown } from "react-icons/ti";
 import './header.css';
 import FadeIn from 'react-fade-in';
-import { Slide } from '@mui/material';
+import { deepOrange, deepPurple } from '@mui/material/colors';
+import { Slide,IconButton,Menu,MenuItem ,Stack,Avatar} from '@mui/material';
+import { AccountCircle } from '@mui/icons-material';
 import { IoHome, IoDownload, IoHelpCircleOutline, IoInformationCircleOutline, IoLanguage, IoSettings, IoDocumentText, IoCall } from "react-icons/io5";
+import { useStateContext } from '../../context/contextProvider';
 
 export default function Header() {
   const [open, setOpen] = React.useState(false);
   const [selectedLanguage, setSelectedLanguage] = React.useState('Language');
   const [selectedNavItem, setSelectedNavItem] = React.useState(null);
   const [openmenu, setOpenmenu] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const {setToken,setUser, user}= useStateContext();
+
+  const isMenuOpen = Boolean(anchorEl);
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -86,6 +96,7 @@ export default function Header() {
             <ListItemText primary={"Language"} />
           </ListItemButton>
         </ListItem>
+        
   
       </List>
       <Divider />
@@ -139,11 +150,63 @@ export default function Header() {
   const handleNavItemClick = (itemName) => {
     setSelectedNavItem(itemName);
   };
+  const handleProfileMenuOpen = (event) => {
+    // Handle opening profile menu
+    setAnchorEl(event.currentTarget);
+    console.log('Profile menu opened');
+  };
+  const handleLogout = (event) => {
+    event.preventDefault();
+    setUser({})
+    setToken(null);
+    
+    
+  };
+  const menuId = 'primary-search-account-menu';
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+        
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+      PaperProps={{
+        style: {
+          maxHeight: 300, // Adjust the maximum height as needed
+          width: 220,    // Adjust the width as needed
+          marginTop:70,
+          marginLeft:15,
+          
+        },
+      }}
+      
+    >
+      <MenuItem onClick={handleMenuClose}>{user.name}</MenuItem>
+      <MenuItem onClick={handleMenuClose}>{user.email && user.email}</MenuItem>
+      <MenuItem onClick={handleMenuClose}>{user.id && user.id}</MenuItem>
+      <Divider/>
+      <MenuItem onClick={handleMenuClose}>Setting</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Help</MenuItem>
+      <Divider/>
+      <MenuItem onClick={handleLogout}>Sign Out</MenuItem>
+    </Menu>
+  );
+
   
 
   return (
     <div>
       <FadeIn>
+        
       <header>
         <h2> <img src="/images/logo.jpeg" alt="logo" width="219px" height="103px" /> </h2>
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  box">
@@ -157,7 +220,7 @@ export default function Header() {
             <Button variant="text" onClick={() => handleNavItemClick('support')}>Support</Button>
           </li>
           <li className={selectedNavItem === 'about' ? 'selected' : ''}>
-            <Button variant="text" onClick={() => handleNavItemClick('about')}>About us</Button>
+            <Button variant="text" onClick={() => handleNavItemClick('about')}>About</Button>
           </li>
           <li>
             <Button variant="contained" className="lang" onClick={handleLanguageButtonClick}>
@@ -173,12 +236,13 @@ export default function Header() {
               <DialogTitle sx={{ bgcolor:"#014802",color:"white" }}>Select Language</DialogTitle>
               <DialogContent sx={{ color: '#014802',}}>
                 <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap',padding:"10px 20px"}}>
-                  <FormControl sx={{ m: 1, minWidth: 120 }}>
-                    <InputLabel sx={{ color: '#014802' }}>Language</InputLabel>
+                  <FormControl sx={{ m: 1, minWidth: 120 }} color='success'>
+                    <InputLabel sx={{ color: '#014802' }} color='success'>Language</InputLabel>
                     <Select
                       native
                       value={selectedLanguage}
                       onChange={handleLanguageChange}
+                      color='success'
                       input={<OutlinedInput label="Language" id="language-select" />}
                       sx={{ color: '#014802',width:"300px",  }}
                     >
@@ -192,7 +256,31 @@ export default function Header() {
               </DialogContent>
             </Dialog>
           </li>
+          <li className='m-1 userIcon'>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              {/* <AccountCircle sx={{ color: '#014802', fontSize:'50px'}}/> */}
+              <Stack direction="row" spacing={1}>
+                <Avatar 
+                sx={{ width: 56, height: 56, backgroundColor:"green" }}
+                
+                
+                
+                >{user.name[0].toUpperCase()}</Avatar>
+            </Stack>
+            </IconButton> 
+            
+            </li>
+            
         </div>
+        
         <Button variant="text" className='menuicon' onClick={toggleMenu(true)}><RiMenu2Fill /></Button>
       </header>
       
@@ -200,6 +288,7 @@ export default function Header() {
         {DrawerList}
       </Drawer>
       </FadeIn>
+      {renderMenu}
     </div>
   );
 }
