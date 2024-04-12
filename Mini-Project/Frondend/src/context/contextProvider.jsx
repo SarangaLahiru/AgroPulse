@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 const StateContext=createContext({
     currentUser:null,
     token:null,
@@ -9,9 +9,8 @@ const StateContext=createContext({
 })
 export const ContextProvider=({children})=> {
 
-
-    const [user,setUser]=useState({});
-    const [token,_setToken]=useState();
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('USER')) || {})
+    const [token,_setToken]=useState(localStorage.getItem('ACCESS_TOKEN'));
     const setToken=(token)=>{
         _setToken(token)
         if(token){
@@ -22,6 +21,11 @@ export const ContextProvider=({children})=> {
             localStorage.removeItem('ACCESS_TOKEN');
         }
     }
+
+    useEffect(() => {
+        localStorage.setItem('USER', JSON.stringify(user));
+      }, [user]);
+
   return (
     <StateContext.Provider value={{ 
         user,

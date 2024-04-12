@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect, session
 from flask_cors import CORS
 from pymongo import MongoClient
 import re
@@ -7,11 +7,14 @@ from PIL import Image
 import re
 import bcrypt
 from vonage import Client, Sms
+from google.oauth2 import id_token
+from google.auth.transport import requests
 
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+GOOGLE_CLIENT_ID = "796659410119-kmmb44g4jgv3j9mdt3tb0gn6qvlpuhtr.apps.googleusercontent.com"
 
 client = Client(key="5e68450e", secret="CX3mEEXHz1cIzQZn")
 sms = Sms(client)
@@ -95,7 +98,15 @@ def signup():
     # Insert user data into MongoDB
     users_collection.insert_one(user_data)
     
-    return jsonify({'message': 'User signed up successfully'}), 201
+    return jsonify({'message': 'User signed up successfully',
+                     'user': {
+            'id': user_data['id'],
+            'name': user_data['name'],
+            'email': user_data['email']
+            # Add more user data fields as needed
+        }
+                    
+                    }), 201
 
 
 @app.route('/api/signin', methods=['POST'])
@@ -180,7 +191,14 @@ def signupImage():
     # Insert user data into MongoDB
     success = send_sms_message(user_data['Phone'], f"Your new password is: {user_password}")
     if success:
-        return jsonify({'message': 'User signed up successfully'}), 201
+        return jsonify({'message': 'User signed up successfully',
+                        'user': {
+            'id': user_data['id'],
+            'name': user_data['name'],
+            'email': user_data['email']
+                        }
+                        
+                        }), 201
     else:
         return jsonify({'error': 'Failed to send SMS. Please try again later.'}), 500
 
@@ -204,5 +222,27 @@ def send_sms_message(phone, message):
         return False
 
 
+    # Validate Google ID token
+    id_token_raw = request.args.get('id_token')
+    if not id_token_raw:
+        return jsonify({'error': 'Missing Google ID token'}), 400
+    
+    try:
+        id_info = id_token.verify_oauth2_token(id_token_raw, requests.Request(), GOOGLE_CLIENT_ID)
+        user_email = id_info['email']
+        
+        # Check if the user already exists in the database
+        user = users_collection.find_one({'email': user_email})
+        if user:
+            # User exists, generate JWT token or session and return
+            # Example: session['user'] = user_email
+            return jsonify({'message': 'User logged in successfully'}), 200
+        else:
+            # User does not exist, create a new user account
+            # You can also redirect the user to a signup page with prefilled data
+            return jsonify({'error': 'User does not exist. Please sign up.'}), 404
+    
+    except ValueError as e:
+        return jsonify({'error': 'Invalid Google ID token'}), 400
 if __name__ == '__main__':
     app.run(debug=True)

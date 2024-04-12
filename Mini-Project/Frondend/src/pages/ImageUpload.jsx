@@ -92,8 +92,10 @@ const ImageUpload = () => {
       console.log(response.data.message); // Handle success response
       console.log("gfghfgh")
       toast.success(response.data.message)
-
+      setUser(response.data.user)
       setToken(123)
+
+      
 
       
     })

@@ -5,6 +5,8 @@ import FadeIn from 'react-fade-in';
 import { createRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axiosClient from '../axios-Client'; // Assuming you have an axios client configured
+import { useStateContext } from '../context/contextProvider';
+import { GoogleLogin } from 'react-google-login';
 
 
 export default function Signup() {
@@ -30,9 +32,12 @@ export default function Signup() {
       .then(response => {
         console.log(response.data.message); // Handle success response
         console.log("gfghfgh")
+        console.log(response.data.user)
         toast.success(response.data.message)
-
+        setUser(response.data.user)
         setToken(123)
+
+        
       })
       .catch(error => {
         console.log(error.response.data.error); // Handle error
@@ -41,6 +46,8 @@ export default function Signup() {
         
       });
   };
+  
+  
 
   return (
     <>
@@ -128,6 +135,8 @@ export default function Signup() {
                 </div>
               </FadeIn>
             </form>
+           
+
 
             <p className="mt-10 text-center text-sm text-gray-500">
               If you already have an account?{' '}
