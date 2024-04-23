@@ -6,6 +6,8 @@ import axioaClient from '../axios-Client';
 
 export default function Home() {
 
+
+
   const [data,setDate]=useState({});
 
 
@@ -13,12 +15,10 @@ export default function Home() {
     try{
       const response =await axioaClient.get('/data');
       console.log(response)
-<<<<<<< HEAD
-      toast.success("ok")
-=======
 
-      toast.success("ok");
->>>>>>> f08df9eb2fca9f13db5c009d993ba4e57d79152a
+      toast.success("ok")
+
+
     }catch(error){
 
       console.log(error)
@@ -29,11 +29,11 @@ export default function Home() {
   }
 
 
+
   return (
     <div>
+      
         <h2 className=''>home</h2>
-
-<Button onClick={fetchData}>ok</Button>
 
 
         

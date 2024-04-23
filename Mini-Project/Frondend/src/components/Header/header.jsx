@@ -27,6 +27,7 @@ import { Slide,IconButton,Menu,MenuItem ,Stack,Avatar} from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import { IoHome, IoDownload, IoHelpCircleOutline, IoInformationCircleOutline, IoLanguage, IoSettings, IoDocumentText, IoCall } from "react-icons/io5";
 import { useStateContext } from '../../context/contextProvider';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Header() {
   const [open, setOpen] = React.useState(false);
@@ -35,6 +36,7 @@ export default function Header() {
   const [openmenu, setOpenmenu] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const {setToken,setUser, user}= useStateContext();
+  const location = useLocation();
 
   const isMenuOpen = Boolean(anchorEl);
   const handleMenuClose = () => {
@@ -210,11 +212,11 @@ export default function Header() {
       <header>
         <h2> <img src="/images/logo.jpeg" alt="logo" width="219px" height="103px" /> </h2>
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  box">
-          <li className={selectedNavItem === 'home' ? 'selected' : ''}>
-            <Button variant="text" color="success" onClick={() => handleNavItemClick('home')}>Home</Button>
+          <li  className={location.pathname === '/' ? 'selected' : ''}>
+            <Link to='/'><Button variant="text" color="success" >Home</Button></Link>
           </li>
-          <li className={selectedNavItem === 'download' ? 'selected' : ''}>
-            <Button variant="text" onClick={() => handleNavItemClick('download')}>Download</Button>
+          <li className={location.pathname === '/detection' ? 'selected' : ''}>
+            <Link to='/detection'><Button variant="text">Download</Button></Link>
           </li>
           <li className={selectedNavItem === 'support' ? 'selected' : ''}>
             <Button variant="text" onClick={() => handleNavItemClick('support')}>Support</Button>
