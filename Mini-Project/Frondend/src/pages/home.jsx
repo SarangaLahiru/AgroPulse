@@ -7,6 +7,29 @@ import axioaClient from '../axios-Client';
 export default function Home() {
 
 
+
+  const [data,setDate]=useState({});
+
+
+  const fetchData= async()=>{
+    try{
+      const response =await axioaClient.get('/data');
+      console.log(response)
+
+      toast.success("ok")
+
+
+    }catch(error){
+
+      console.log(error)
+      console.log("jhvhjv")
+      toast.warn("not ok")
+
+    }
+  }
+
+
+
   return (
     <div>
       
