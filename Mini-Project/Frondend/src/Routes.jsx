@@ -5,6 +5,8 @@ import Login from "./pages/login";
 import { createBrowserRouter ,Navigate} from "react-router-dom";
 import App from "./App";
 import ImageUpload from "./pages/ImageUpload";
+import PestImageUpload from "./pages/PestImageUpload";
+import Home from "./pages/home";
 
 const router=createBrowserRouter([
     {
@@ -13,7 +15,7 @@ const router=createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<App/>
+                element:<Home/>
             },
             {
                 path:'/dashboard',
@@ -22,6 +24,10 @@ const router=createBrowserRouter([
             {
                 path:'/user',
                 element:<Navigate to="/"/>
+            },
+            {
+                path:'/detection',
+                element:<PestImageUpload/>
             },
 
         ]
