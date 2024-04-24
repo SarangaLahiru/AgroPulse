@@ -17,3 +17,30 @@ body{
     /* font-size: 18px; */
     font-weight: bold;
 }
+.box1 .dis .name{
+    font-size: 8px;
+}
+.file-upload:hover .dis .upload{
+    animation: anim1 0.8s infinite;
+    position: relative;
+    
+}
+@keyframes anim1{
+    0%{
+        top: 0px;
+        
+
+
+    }
+    100%{
+        top: 20px;
+
+    }
+}
+
+.my-custom-modal-class .swal2-confirm {
+    background-color: green;
+    color: #ffffff;
+    border-color: white;
+  }
+ 
