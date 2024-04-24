@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, redirect, session
-from flask_cors import CORS
+from flask_cors import CORS,cross_origin
 from pymongo import MongoClient
 import re
 import pytesseract
@@ -9,16 +9,19 @@ import bcrypt
 from vonage import Client, Sms
 from google.oauth2 import id_token
 from google.auth.transport import requests
+from detection import predict
+
 
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+
 GOOGLE_CLIENT_ID = "796659410119-6p76ghbvl4tmcpmngk1v97u8h0n2g6d0.apps.googleusercontent.com"
 
 client = Client(key="5e68450e", secret="CX3mEEXHz1cIzQZn")
 sms = Sms(client)
-# MongoDB connection
+
 client = MongoClient('mongodb://localhost:27017/')
 db = client['usersdb']
 users_collection = db['users']  # Assuming you have a collection named 'users'
@@ -59,6 +62,8 @@ def extract_name_and_mobile(ocr_text):
     mobile = mobile_match.group(1).strip() if mobile_match else None
     
     return name, mobile
+
+
 @app.route('/api/data')
 def get_data():
     data = {'message': 'Hello from Flask API'}
@@ -259,5 +264,23 @@ def signup_google():
         return jsonify({'message': 'User signed up successfully'}), 200
     except ValueError as e:
         return jsonify({'error': 'Invalid token'}), 400
+
+@app.route('/api/detection', methods=['POST'])
+def detection():
+    # Check if the request contains an image file
+    if 'image' not in request.files:
+        return jsonify({'error': 'No image file provided'}), 400
+    
+    # Get the image file from the request
+    image_file = request.files['image']
+    
+    # Call the predict function and pass the image file
+    result = predict(image_file)
+    
+    # Return the predicted class as a JSON response
+    return jsonify({'result': result})
+    
+
+
 if __name__ == '__main__':
     app.run(debug=True)
