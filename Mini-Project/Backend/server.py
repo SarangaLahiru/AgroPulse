@@ -7,9 +7,9 @@ from PIL import Image
 import re
 import bcrypt
 from vonage import Client, Sms
-from google.oauth2 import id_token
-from google.auth.transport import requests
-from detection import predict
+# from google.oauth2 import id_token
+# from google.auth.transport import requests
+# from detection import predict
 
 
 
@@ -27,25 +27,27 @@ db = client['usersdb']
 users_collection = db['users']  # Assuming you have a collection named 'users'
 
 def validate_password(password):
-    # At least one uppercase letter
+     # At least one uppercase letter
     if not re.search(r'[A-Z]', password):
-        return False
+        return "Password must contain at least one uppercase letter."
     
     # At least one lowercase letter
     if not re.search(r'[a-z]', password):
-        return False
+        return "Password must contain at least one lowercase letter."
     
     # At least one digit
     if not re.search(r'\d', password):
-        return False
+        return "Password must contain at least one digit."
     
     # At least one special character
     if not re.search(r'[^a-zA-Z0-9]', password):
-        return False
+        return "Password must contain at least one special character."
     
     # Minimum length of 8 characters
     if len(password) < 8:
-        return False
+        return "Password must be at least 8 characters long."
+    
+    return True  # Password is valid
     
     return True
 def extract_name_and_mobile(ocr_text):
@@ -91,9 +93,9 @@ def signup():
     if user_data['password'] != user_data['confirmPassword']:
         return jsonify({'error': 'Passwords do not match'}), 400
     
-    # Validate password
-    if not validate_password(user_data['password']):
-        return jsonify({'error': 'Invalid password'}), 400
+    password_validation_result = validate_password(user_data.get('password'))
+    if password_validation_result is not True:
+        return jsonify({'error': password_validation_result}), 400
     
      # Hash the password
     hashed_password = bcrypt.hashpw(user_data['password'].encode('utf-8'), bcrypt.gensalt())
