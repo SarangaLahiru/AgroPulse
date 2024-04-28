@@ -7,9 +7,11 @@ from PIL import Image
 import re
 import bcrypt
 from vonage import Client, Sms
-# from google.oauth2 import id_token
-# from google.auth.transport import requests
-# from detection import predict
+from google.oauth2 import id_token
+from google.auth.transport import requests
+from detection import predict
+from translate import translations
+
 
 
 
@@ -19,7 +21,8 @@ CORS(app)  # Enable CORS for all routes
 
 GOOGLE_CLIENT_ID = "796659410119-6p76ghbvl4tmcpmngk1v97u8h0n2g6d0.apps.googleusercontent.com"
 
-client = Client(key="5e68450e", secret="CX3mEEXHz1cIzQZn")
+# client = Client(key="5e68450e", secret="CX3mEEXHz1cIzQZn")
+client = Client(key="b7faa0b9", secret="zi6PY2HKl3wL5zAu") 
 sms = Sms(client)
 
 client = MongoClient('mongodb://localhost:27017/')
@@ -284,5 +287,21 @@ def detection():
     
 
 
+@app.route('/change-language', methods=['POST'])
+def change_language():
+    language = request.json.get('language', 'en')
+    session['language'] = language
+    return {'success': True}
+
+@app.route('/get-translations', methods=['POST', 'GET'])
+def get_translations():
+    if request.method == 'POST':
+        language = request.json.get('language', 'en')  # Get language from JSON data in POST request
+    else:
+        language = request.args.get('language', 'en')  # Get language from query parameter in GET request
+    
+    return jsonify(translations.get(language, translations['en']))
+
 if __name__ == '__main__':
+    app.secret_key = 'your_secret_key' 
     app.run(debug=True)

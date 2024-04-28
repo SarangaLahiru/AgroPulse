@@ -28,6 +28,9 @@ import { AccountCircle } from '@mui/icons-material';
 import { IoHome, IoDownload, IoHelpCircleOutline, IoInformationCircleOutline, IoLanguage, IoSettings, IoDocumentText, IoCall } from "react-icons/io5";
 import { useStateContext } from '../../context/contextProvider';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import axios from 'axios';
+
 
 export default function Header() {
   const [open, setOpen] = React.useState(false);
@@ -37,6 +40,32 @@ export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const {setToken,setUser, user}= useStateContext();
   const location = useLocation();
+  // const [translations, setTranslations] = React.useState({});
+  const {setTranslations,translations}=useStateContext();
+
+
+  // Fetch translations when the component mounts or language changes
+  React.useEffect(() => {
+    fetchTranslations();
+  }, [selectedLanguage]);
+
+  const fetchTranslations = () => {
+    axios.get(`http://localhost:5000/get-translations`, { params: { language: selectedLanguage } })
+      .then(response => {
+        // Handle the response to update translations
+        setTranslations(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching translations:', error);
+      });
+  };
+
+  // Function to handle language change
+  const handleLanguageChange = (event) => {
+    const newLanguage = event.target.value;
+    setSelectedLanguage(newLanguage);
+    setOpen(false); // Close language selection dialog
+  };
 
   const isMenuOpen = Boolean(anchorEl);
   const handleMenuClose = () => {
@@ -139,12 +168,6 @@ export default function Header() {
     setOpen(true);
   };
   
-
-  const handleLanguageChange = (event) => {
-    setSelectedLanguage(event.target.value);
-    setOpen(false);
-  };
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -213,16 +236,16 @@ export default function Header() {
         <h2> <img src="/images/logo.jpeg" alt="logo" width="219px" height="103px" /> </h2>
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  box">
           <li  className={location.pathname === '/' ? 'selected' : ''}>
-            <Link to='/'><Button variant="text" color="success" >Home</Button></Link>
+            <Link to='/'><Button variant="text" color="success" >{translations.home}</Button></Link>
           </li>
           <li className={location.pathname === '/detection' ? 'selected' : ''}>
-            <Link to='/detection'><Button variant="text">Download</Button></Link>
+            <Link to='/detection'><Button variant="text">{translations.detection}</Button></Link>
           </li>
           <li className={selectedNavItem === 'support' ? 'selected' : ''}>
-            <Button variant="text" onClick={() => handleNavItemClick('support')}>Support</Button>
+            <Button variant="text" onClick={() => handleNavItemClick('support')}>{translations.support}</Button>
           </li>
           <li className={selectedNavItem === 'about' ? 'selected' : ''}>
-            <Button variant="text" onClick={() => handleNavItemClick('about')}>About</Button>
+            <Button variant="text" onClick={() => handleNavItemClick('about')}>{translations.about}</Button>
           </li>
           <li>
             <Button variant="contained" className="lang" onClick={handleLanguageButtonClick}>
@@ -249,9 +272,9 @@ export default function Header() {
                       sx={{ color: '#014802',width:"300px",  }}
                     >
                       <option value="" disabled>Select a language</option>
-                      <option value="ENGLISH" sx={{ color: '#014802',bgcolor:'red' }}>English</option>
-                      <option value="TAMIL">Tamil</option>
-                      <option value="SINHALA">Sinhala</option>
+                      <option value="en" sx={{ color: '#014802',bgcolor:'red' }}>English</option>
+                      <option value="fr">Tamil</option>
+                      <option value="සිංහල">සිංහල</option>
                     </Select>
                   </FormControl>
                 </Box>
