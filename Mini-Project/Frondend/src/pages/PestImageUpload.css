@@ -18,7 +18,7 @@ body{
     font-weight: bold;
 }
 .box1 .dis .name{
-    font-size: 8px;
+    /* font-size: 8px; */
 }
 .file-upload:hover .dis .upload{
     animation: anim1 0.8s infinite;

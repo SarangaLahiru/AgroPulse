@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { UploadFile } from '@mui/icons-material';
 import { Button, Dialog } from '@mui/material';
 import axioaClient from '../axios-Client';
+import { useStateContext } from '../context/contextProvider';
 
 export default function PestImageUpload() {
     const [file, setFile] = useState(null);
@@ -15,6 +16,7 @@ export default function PestImageUpload() {
     const [open,setOpen]=useState(false)
     const videoRef = useRef(null);
     const streamRef = useRef(null);
+    const {translations}=useStateContext();
 
     const handleFileChange = (e) => {
         const uploadedFile = e.target.files[0];
@@ -59,8 +61,8 @@ export default function PestImageUpload() {
       console.error('No file selected or snapshot taken');
       Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "No file selected or snapshot taken",
+        title: translations.detection_msg_t2,
+        text: translations.detection_msg_t1,
         confirmButtonText: "ok",
         customClass: {
           container: 'my-custom-modal-class'   // Custom class for the deny button
@@ -193,8 +195,8 @@ export default function PestImageUpload() {
             <div className='mt-20'>
                 <FadeIn>
                     <div className="box mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 ml-5 mt-10 text-3xl">
-                        <h2 className='sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-3xl max-sm:text-xl' >DETECT PEST IN YOUR FIELD TO PROTECT CROP </h2>
-                        <h1 className='sm:text-4xl md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-6xl max-sm:text-4xl'>Pest Detection</h1>
+                        <h2 className='sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-3xl max-sm:text-xl' >{translations.detection_p1}</h2>
+                        <h1 className='sm:text-4xl md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-6xl max-sm:text-4xl'>{translations.detection_p2}</h1>
                     </div>
                 </FadeIn>
 
@@ -205,7 +207,7 @@ export default function PestImageUpload() {
                             <img className='img -z-10 m-auto max-sm:p-5 2xl:scale-110 2xl:mt-8' width="1280px" src="./images/Rectangle 26.png" alt="" />
                         )}
                         <div className="dis w-full m-auto z-40 absolute max-sm:top-12 max-md:top-32 max-lg:top-40 max-xl:top-56 2xl:top-52 max-2xl:top-72">
-                            <h2 className='name m-auto w-fit text-2xl max-sm:p-6 p-10 text-teal-50'>{file ? file.name : 'Drag or upload an image'}</h2>
+                            <h2 className='name m-auto w-fit text-2xl max-sm:p-6 p-10 text-teal-50'>{file ? file.name : translations.detection_t1}</h2>
                             <img className='upload m-auto max-sm:-mt-4 max-sm:w-14 max-md:w-20 max-lg:w-24 max-xl:28' src="./images/Group 6.png" alt="" />
                         </div>
                     </label>
@@ -216,8 +218,8 @@ export default function PestImageUpload() {
                             <img onClick={handleTakePhoto} src="./images/Group 5.png" className='' alt="" />
                         </div>
                         <div className="btn2 absolute max-sm:right-5 sm:right-20 sm:text-xl">
-                            <button className='sm:m-4 max-sm:m-1 bg-green-800 text-green-50 max-sm:p-3 max-sm:px-6 sm:p-3 sm:px-8 active:scale-75 hover:drop-shadow-xl rounded-full' onClick={handleDetect}>Detect</button>
-                            <button className='sm:m-4 max-sm:m-1 bg-green-800 text-green-50 max-sm:p-3 max-sm:px-6 sm:p-3 sm:px-9 active:scale-75 hover:drop-shadow-xl  rounded-full' onClick={handleBack}>Back</button>
+                            <button className='sm:m-4 max-sm:m-1 bg-green-800 text-green-50 max-sm:p-3 max-sm:px-6 sm:p-3 sm:px-8 active:scale-75 hover:drop-shadow-xl rounded-full' onClick={handleDetect}>{translations.detection_b1}</button>
+                            <button className='sm:m-4 max-sm:m-1 bg-green-800 text-green-50 max-sm:p-3 max-sm:px-6 sm:p-3 sm:px-9 active:scale-75 hover:drop-shadow-xl  rounded-full' onClick={handleBack}>{translations.detection_b2}</button>
                         </div>
                     </div>
                 </div>
