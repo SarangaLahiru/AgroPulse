@@ -23,7 +23,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import './header.css';
 import FadeIn from 'react-fade-in';
 import { deepOrange, deepPurple } from '@mui/material/colors';
-import { Slide,IconButton,Menu,MenuItem ,Stack,Avatar} from '@mui/material';
+import { Slide, IconButton, Menu, MenuItem, Stack, Avatar } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import { IoHome, IoDownload, IoHelpCircleOutline, IoInformationCircleOutline, IoLanguage, IoSettings, IoDocumentText, IoCall } from "react-icons/io5";
 import { useStateContext } from '../../context/contextProvider';
@@ -38,10 +38,10 @@ export default function Header() {
   const [selectedNavItem, setSelectedNavItem] = React.useState(null);
   const [openmenu, setOpenmenu] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const {setToken,setUser, user}= useStateContext();
+  const { setToken, setUser, user } = useStateContext();
   const location = useLocation();
   // const [translations, setTranslations] = React.useState({});
-  const {setTranslations,translations}=useStateContext();
+  const { setTranslations, translations } = useStateContext();
 
 
   // Fetch translations when the component mounts or language changes
@@ -81,7 +81,7 @@ export default function Header() {
   };
 
   const DrawerList = (
-    <Box sx={{ width: 250, marginTop:5 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 250, marginTop: 5 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         <ListItem disablePadding>
           <ListItemButton>
@@ -91,16 +91,16 @@ export default function Header() {
             <ListItemText primary={"Home"} />
           </ListItemButton>
         </ListItem>
-  
+
         <ListItem disablePadding >
           <ListItemButton>
             <ListItemIcon>
               <IoDownload />
             </ListItemIcon>
-            <ListItemText primary={"Download"}/>
+            <ListItemText primary={"Download"} />
           </ListItemButton>
         </ListItem>
-  
+
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -109,7 +109,7 @@ export default function Header() {
             <ListItemText primary={"Support"} />
           </ListItemButton>
         </ListItem>
-  
+
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -118,7 +118,7 @@ export default function Header() {
             <ListItemText primary={"About us"} />
           </ListItemButton>
         </ListItem>
-  
+
         <ListItem disablePadding >
           <ListItemButton>
             <ListItemIcon>
@@ -127,12 +127,12 @@ export default function Header() {
             <ListItemText primary={"Language"} />
           </ListItemButton>
         </ListItem>
-        
-  
+
+
       </List>
       <Divider />
       <List>
-  
+
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -141,7 +141,7 @@ export default function Header() {
             <ListItemText primary={"Settings"} />
           </ListItemButton>
         </ListItem>
-  
+
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -150,7 +150,7 @@ export default function Header() {
             <ListItemText primary={"Policy"} />
           </ListItemButton>
         </ListItem>
-  
+
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -159,7 +159,7 @@ export default function Header() {
             <ListItemText primary={"Contact us"} />
           </ListItemButton>
         </ListItem>
-  
+
       </List>
     </Box>
   );
@@ -167,7 +167,7 @@ export default function Header() {
   const handleLanguageButtonClick = () => {
     setOpen(true);
   };
-  
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -184,8 +184,8 @@ export default function Header() {
     event.preventDefault();
     setUser({})
     setToken(null);
-    
-    
+
+
   };
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -194,7 +194,7 @@ export default function Header() {
       anchorOrigin={{
         vertical: 'top',
         horizontal: 'right',
-        
+
       }}
       id={menuId}
       keepMounted
@@ -208,110 +208,110 @@ export default function Header() {
         style: {
           maxHeight: 300, // Adjust the maximum height as needed
           width: 220,    // Adjust the width as needed
-          marginTop:70,
-          marginLeft:15,
-          
+          marginTop: 70,
+          marginLeft: 15,
+
         },
       }}
-      
+
     >
       <MenuItem onClick={handleMenuClose}>{user.name}</MenuItem>
       <MenuItem onClick={handleMenuClose}>{user.email && user.email}</MenuItem>
       <MenuItem onClick={handleMenuClose}>{user.id && user.id}</MenuItem>
-      <Divider/>
+      <Divider />
       <MenuItem onClick={handleMenuClose}>Setting</MenuItem>
       <MenuItem onClick={handleMenuClose}>Help</MenuItem>
-      <Divider/>
+      <Divider />
       <MenuItem onClick={handleLogout}>Sign Out</MenuItem>
     </Menu>
   );
 
-  
+
 
   return (
     <div>
       <FadeIn>
-        
-      <header>
-        <h2> <img src="/images/logo.jpeg" alt="logo" width="219px" height="103px" /> </h2>
-        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  box">
-          <li  className={location.pathname === '/' ? 'selected' : ''}>
-            <Link to='/'><Button variant="text" color="success" >{translations.home}</Button></Link>
-          </li>
-          <li className={location.pathname === '/detection' ? 'selected' : ''}>
-            <Link to='/detection'><Button variant="text">{translations.detection}</Button></Link>
-          </li>
-          <li className={selectedNavItem === 'support' ? 'selected' : ''}>
-            <Button variant="text" onClick={() => handleNavItemClick('support')}>{translations.support}</Button>
-          </li>
-          <li className={selectedNavItem === 'about' ? 'selected' : ''}>
-            <Button variant="text" onClick={() => handleNavItemClick('about')}>{translations.about}</Button>
-          </li>
-          <li>
-            <Button variant="contained" className="lang" onClick={handleLanguageButtonClick}>
-              {selectedLanguage} <TiArrowSortedDown className="langIcon"/>
-            </Button>
-            <Dialog
-              open={open}
-              onClose={handleClose}
-              className="langBox"
-              sx={{ color: '#014802'}}
-              TransitionComponent={Slide}
-            >
-              <DialogTitle sx={{ bgcolor:"#014802",color:"white" }}>Select Language</DialogTitle>
-              <DialogContent sx={{ color: '#014802',}}>
-                <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap',padding:"10px 20px"}}>
-                  <FormControl sx={{ m: 1, minWidth: 120 }} color='success'>
-                    <InputLabel sx={{ color: '#014802' }} color='success'>Language</InputLabel>
-                    <Select
-                      native
-                      value={selectedLanguage}
-                      onChange={handleLanguageChange}
-                      color='success'
-                      input={<OutlinedInput label="Language" id="language-select" />}
-                      sx={{ color: '#014802',width:"300px",  }}
-                    >
-                      <option value="" disabled>Select a language</option>
-                      <option value="en" sx={{ color: '#014802',bgcolor:'red' }}>English</option>
-                      <option value="fr">Tamil</option>
-                      <option value="සිංහල">සිංහල</option>
-                    </Select>
-                  </FormControl>
-                </Box>
-              </DialogContent>
-            </Dialog>
-          </li>
-          <li className='m-1 userIcon'>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              {/* <AccountCircle sx={{ color: '#014802', fontSize:'50px'}}/> */}
-              <Stack direction="row" spacing={1}>
-                <Avatar 
-                sx={{ width: 56, height: 56, backgroundColor:"green" }}
-                
-                
-                
-                >{user.name[0].toUpperCase()}</Avatar>
-            </Stack>
-            </IconButton> 
-            
+
+        <header className=''>
+          <h2 className=''> <img src="/images/logo.jpeg" alt="logo" width="219px" height="103px" /> </h2>
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  box">
+            <li className={location.pathname === '/' ? 'selected' : ''}>
+              <Link to='/'><Button variant="text" color="success" >{translations.home}</Button></Link>
             </li>
-            
-        </div>
-        
-        <Button variant="text" className='menuicon' onClick={toggleMenu(true)}><RiMenu2Fill /></Button>
-      </header>
-      
-      <Drawer open={openmenu} onClose={toggleMenu(false)}>
-        {DrawerList}
-      </Drawer>
+            <li className={location.pathname === '/detection' ? 'selected' : ''}>
+              <Link to='/detection'><Button variant="text">{translations.detection}</Button></Link>
+            </li>
+            <li className={selectedNavItem === 'support' ? 'selected' : ''}>
+              <Button variant="text" onClick={() => handleNavItemClick('support')}>{translations.support}</Button>
+            </li>
+            <li className={selectedNavItem === 'about' ? 'selected' : ''}>
+              <Button variant="text" onClick={() => handleNavItemClick('about')}>{translations.about}</Button>
+            </li>
+            <li>
+              <Button variant="contained" className="lang" onClick={handleLanguageButtonClick}>
+                {selectedLanguage} <TiArrowSortedDown className="langIcon" />
+              </Button>
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                className="langBox"
+                sx={{ color: '#014802' }}
+                TransitionComponent={Slide}
+              >
+                <DialogTitle sx={{ bgcolor: "#014802", color: "white" }}>Select Language</DialogTitle>
+                <DialogContent sx={{ color: '#014802', }}>
+                  <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap', padding: "10px 20px" }}>
+                    <FormControl sx={{ m: 1, minWidth: 120 }} color='success'>
+                      <InputLabel sx={{ color: '#014802' }} color='success'>Language</InputLabel>
+                      <Select
+                        native
+                        value={selectedLanguage}
+                        onChange={handleLanguageChange}
+                        color='success'
+                        input={<OutlinedInput label="Language" id="language-select" />}
+                        sx={{ color: '#014802', width: "300px", }}
+                      >
+                        <option value="" disabled>Select a language</option>
+                        <option value="en" sx={{ color: '#014802', bgcolor: 'red' }}>English</option>
+                        <option value="fr">Tamil</option>
+                        <option value="සිංහල">සිංහල</option>
+                      </Select>
+                    </FormControl>
+                  </Box>
+                </DialogContent>
+              </Dialog>
+            </li>
+            <li className='m-1 userIcon'>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                {/* <AccountCircle sx={{ color: '#014802', fontSize:'50px'}}/> */}
+                <Stack direction="row" spacing={1}>
+                  <Avatar
+                    sx={{ width: 56, height: 56, backgroundColor: "green" }}
+
+
+
+                  >{user.name[0].toUpperCase()}</Avatar>
+                </Stack>
+              </IconButton>
+
+            </li>
+
+          </div>
+
+          <Button variant="text" className='menuicon' onClick={toggleMenu(true)}><RiMenu2Fill /></Button>
+        </header>
+
+        <Drawer open={openmenu} onClose={toggleMenu(false)}>
+          {DrawerList}
+        </Drawer>
       </FadeIn>
       {renderMenu}
     </div>
