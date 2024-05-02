@@ -1,0 +1,60 @@
+.app{
+  margin-top: 4%;
+}
+.hero {
+    width: 100%;
+    min-height: 45vh;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    line-height: 1;
+    margin-top: 25%;
+  }
+  
+  .hero-text {
+    text-align: left;
+    max-width: 800px;
+    padding-bottom: 5%;
+    padding-left: 7%;
+  }
+  
+  .hero h2 {
+    font-size: 55px;
+    font-weight: 600;
+  }
+  .hero p {
+    color: white;
+    font-size: 20px;
+  }
+  
+  .right-text .hero-text {
+    text-align: right;
+    max-width: 800px;
+    padding-bottom: 5%;
+    padding-right: 7%;
+    align-items: flex-end;
+    justify-content: right;
+    line-height: 1.1;
+  }
+  
+  .right-text  p {
+    text-align: right;
+    
+  }
+
+  .images{
+    width: 100%;
+    height: auto;
+  }
+
+  .move{
+    margin-left: 34%;
+  }
+
+  .moves{
+    margin-left: 39%;
+    
+  }
