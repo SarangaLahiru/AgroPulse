@@ -35,7 +35,7 @@ function ParallaxContent() {
 
         <Parallax strength={600} bgImage={imageThrid} className="images">
           <div className="hero container" data-aos="fade-right">
-            <div className="hero-text moves" data-aos="fade-right">
+            <div className="hero-text moves">
               <h2>{translations.Home_p7} </h2>
               <p>{translations.Home_p8}</p>
             </div>
