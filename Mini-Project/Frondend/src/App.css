@@ -2,3 +2,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    /* Change to the color you want */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #29881e;
+    /* Change to the color you want */
+    border-radius: 100px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    /* Change to the width you want */
+}

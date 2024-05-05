@@ -7,23 +7,23 @@
 @tailwind utilities;
 
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
     background-color: white;
 }
 
-.container{
+.container {
     padding-left: 5%;
     padding-right: 5%;
 }
 
-.btn{
+.btn {
     background-color: #014802;
     color: white;
     padding: 10px 14px;
@@ -39,13 +39,13 @@ body{
     transition-duration: 0.4s;
 }
 
-.btn img{
+.btn img {
     width: 45px;
     margin-left: 10px;
-   
+
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #038a05;
     color: white;
 }

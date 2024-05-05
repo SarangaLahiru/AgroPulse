@@ -1,25 +1,21 @@
 import React from "react";
 import "./BodyContent.css";
 import right_arrow from "../assets/right-arrow.png";
+import { useStateContext } from "../context/contextProvider";
 
 function BodyContent() {
+  const { setTranslations, translations } = useStateContext();
   return (
-    <div className="body-content container">
+    <div className="body-content container" data-aos="fade-up-left">
       <div className="body-text">
-        <h1>Welcome to Our Website!</h1>
+        <h1>{translations.Home_p1}</h1>
 
         <p>
-          In the realm of agriculture, the menace of pest infestations looms
-          large, presenting a formidable challenge to crop yields and quality. The
-          identification and effective management of these pests stand as pivotal
-          pillars for ensuring sustainable agricultural practices and safeguarding
-          global food security. In response to this pressing need, our project
-          endeavors to pioneer an innovative solution leveraging the power of
-          modern technology.
+          {translations.Home_p2}
         </p>
 
-        <button className="button btn">
-          Get Started <img src={right_arrow} alt=""></img>
+        <button className="btn">
+          {translations.Home_b1} <img src={right_arrow} alt=""></img>
         </button>
       </div>
     </div>
