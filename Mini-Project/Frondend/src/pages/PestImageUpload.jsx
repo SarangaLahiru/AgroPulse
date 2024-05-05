@@ -229,7 +229,7 @@ export default function PestImageUpload() {
                 {/* <h2>fsdfsf</h2> */}
                 </Dialog>
 
-                <img src="./images/logo2.png" className='w-fit m-auto max-sm:w-48' alt="" />
+                
             </div>
         </FadeIn>
     );

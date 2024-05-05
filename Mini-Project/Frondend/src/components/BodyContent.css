@@ -11,7 +11,7 @@
   max-width: 100%;
 }
 
-h1 {
+.body-text h1 {
   font-weight: 700;
   font-size: 70px;
   background-image: linear-gradient(to right, #014802, #02ae05);
@@ -19,7 +19,7 @@ h1 {
   color: transparent;
 }
 
-p {
+.body-text p {
   font-weight: 500;
   font-size: 19px;
   color: green;

@@ -9,13 +9,13 @@ body{
     
 }
 .box h1{
-    /* font-size: 30px; */
-    font-weight: bold;
+    font-size: 52px;
+    font-weight: 700;
     color: #015F03;
 }
 .box h2{
-    /* font-size: 18px; */
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: 700;
 }
 .box1 .dis .name{
     /* font-size: 8px; */

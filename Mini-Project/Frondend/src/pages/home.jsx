@@ -9,6 +9,7 @@ import ContactForm from '../components/ContactForm/ContactForm';
 import ParallaxContent from '../components/Parallax/ParallaxContent';
 import ImageSlider from '../components/ImageSlider/ImageSlider';
 
+
 export default function Home() {
 
 
