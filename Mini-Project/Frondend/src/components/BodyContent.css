@@ -1,3 +1,6 @@
+/* src/styles/tailwind.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .body-content {
   display: flex;
   align-items: center;
@@ -11,7 +14,7 @@
   max-width: 100%;
 }
 
-h1 {
+.body-text h1 {
   font-weight: 700;
   font-size: 70px;
   background-image: linear-gradient(to right, #014802, #02ae05);
@@ -19,7 +22,7 @@ h1 {
   color: transparent;
 }
 
-p {
+.body-text p {
   font-weight: 500;
   font-size: 19px;
   color: green;
@@ -34,6 +37,7 @@ p {
     padding-top: 4%;
     padding-bottom: 4%;
   }
+
   h1 {
     line-height: 1;
   }
@@ -50,6 +54,7 @@ p {
     padding-top: 4%;
     padding-bottom: 4%;
   }
+
   h1 {
     line-height: 1;
   }
@@ -61,8 +66,7 @@ p {
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-}
+@media only screen and (min-width: 768px) {}
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
@@ -83,9 +87,7 @@ p {
     padding-top: 1%;
     padding-bottom: 3%;
   }
-  
+
 
 
 }
-
-

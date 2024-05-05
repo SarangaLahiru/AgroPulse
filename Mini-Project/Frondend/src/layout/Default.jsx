@@ -7,7 +7,8 @@ import Header from "../components/Header/header";
 export default function Default() {
 
   const { setToken, token } = useStateContext();
-  setToken(123)
+
+
 
   if (!token) {
     return <Navigate to='/login' />

@@ -3,10 +3,10 @@ import "./ContactForm.css";
 
 function ContactForm() {
   return (
-    <div className="contact  container">
+    <div className=" contact  container ">
       <div className="row">
         <div className="col__2">
-          <div className="contact__box">
+          <div className=" contact__box">
             <div className="contact__meta">
               <h2 className="hire__text">Support</h2>
               <h1 className="hire__text">Contact</h1>
@@ -22,6 +22,7 @@ function ContactForm() {
                 type="text"
                 className="contact"
                 placeholder="Enter Your Name"
+
               />
               <div className="contact_sub_text">Email *</div>
               <input
