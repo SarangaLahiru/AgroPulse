@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, redirect, session
-from flask_cors import CORS,cross_origin
+from flask_cors import CORS, cross_origin
 from pymongo import MongoClient
 import re
 import pytesseract
@@ -7,10 +7,11 @@ from PIL import Image
 import re
 import bcrypt
 from vonage import Client, Sms
-from google.oauth2 import id_token
-from google.auth.transport import requests
-from detection import predict
+#from google.oauth2 import id_token
+#from google.auth.transport import requests
+#from detection import predict
 from translate import translations
+from datetime import datetime
 
 
 
@@ -28,6 +29,7 @@ sms = Sms(client)
 client = MongoClient('mongodb://localhost:27017/')
 db = client['usersdb']
 users_collection = db['users']  # Assuming you have a collection named 'users'
+contacts_collection = db['contacts'] # Have a collection named contacts
 
 def validate_password(password):
      # At least one uppercase letter
@@ -301,6 +303,33 @@ def get_translations():
         language = request.args.get('language', 'en')  # Get language from query parameter in GET request
     
     return jsonify(translations.get(language, translations['en']))
+
+
+# Get the Contact Form Details
+@app.route('/contact', methods=['POST'])
+def contact():
+    data = request.get_json()
+    name = data.get('name')
+    email = data.get('email')
+    message = data.get('message')
+    date_time = datetime.now()
+
+    if name and email and message:
+        contacts_collection.insert_one({
+            'name': name,
+            'email': email,
+            'message': message,
+            'date_time': date_time
+        })
+        return jsonify({'message': 'Message sent successfully!'}), 201
+    else:
+        return jsonify({'error': 'All fields are required!'}), 400
+
+
+
+
+
+
 
 if __name__ == '__main__':
     app.secret_key = 'your_secret_key' 

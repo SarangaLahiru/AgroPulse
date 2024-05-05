@@ -16,7 +16,7 @@
   
   .hero-text {
     text-align: left;
-    max-width: 800px;
+    max-width: 900px;
     padding-bottom: 5%;
     padding-left: 7%;
   }
@@ -32,9 +32,8 @@
   
   .right-text .hero-text {
     text-align: right;
-    max-width: 800px;
+    max-width: 900px;
     padding-bottom: 5%;
-    padding-right: 7%;
     align-items: flex-end;
     justify-content: right;
     line-height: 1.1;
@@ -55,6 +54,6 @@
   }
 
   .moves{
-    margin-left: 39%;
+    margin-left: 43%;
     
   }

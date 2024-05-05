@@ -6,6 +6,7 @@
 
 h1.hire__text {
   font-size: 64px;
+  font-weight: 700;
   color: #017a04;
   text-align: left;
 }
@@ -19,17 +20,18 @@ h2.hire__text {
 
 p.hire__text {
   font-size: 20px;
+  font-weight: 600;
   color: black;
   text-align: left;
 }
 .input__box {
   padding-top: 1.5%;
-  padding-left: 15%;
+  padding-left: 20%;
 }
 
 input.contact {
   display: block;
-  width: 85%;
+  width: 80%;
   padding: 0 20px;
   border: 2px solid black;
   border-radius: 0;
@@ -45,7 +47,7 @@ input.contact {
   background: none;
 }
 
-.contact_sub_text {
+.input__box .contact_sub_text {
   font-size: 20px;
   font-weight: 500;
 }
@@ -54,7 +56,7 @@ textarea#message {
   height: 280px;
   background: none;
   padding: 0 20px;
-  width: 85%;
+  width: 80%;
   line-height: 46px;
   color: black;
   font-size: 15px;
@@ -64,12 +66,12 @@ textarea#message {
 }
 
 button.send__pointer {
-  padding: 10px 25px;
-  border-radius: 12px;
+  padding: 12px 20px;
+  border-radius: 10px;
   margin-left: 0%;
   margin-top: 1%;
-  font-size: 22px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 /* Resposive Screen */
@@ -186,10 +188,10 @@ button.send__pointer {
   }
 
   .contact_sub_text {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   button.send__pointer {
-    font-size: 22px;
+    font-size: 20px;
   }
 }

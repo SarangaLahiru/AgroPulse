@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 import "./ContactForm.css";
 
 function ContactForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:5000/contact", {
+        name,
+        email,
+        message,
+      });
+      Swal.fire({
+        title: "Message Sent!",
+        text: "Thank you for your message! We will get back to you soon.",
+        icon: "success",
+        confirmButtonText: "OK",
+        confirmButtonColor: "#014802",
+      });
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Error!",
+        text: "Something went wrong. Please try again later.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
+  };
+
   return (
     <div className="contact  container">
       <div className="row">
@@ -12,32 +48,44 @@ function ContactForm() {
               <h1 className="hire__text">Contact</h1>
               <p className="hire__text">
                 If you have any questions, problems, or feedback get in touch
-                here:
+                here :
               </p>
             </div>
 
             <div className="input__box">
-              <div className="contact_sub_text">Name *</div>
-              <input
-                type="text"
-                className="contact"
-                placeholder="Enter Your Name"
-              />
-              <div className="contact_sub_text">Email *</div>
-              <input
-                type="text"
-                className="contact"
-                placeholder="Enter Your Email"
-              />
-              <div className="contact_sub_text">Message *</div>
-              <textarea
-                name="message"
-                id="message"
-                placeholder="Enter Your Massage..."
-              ></textarea>
-              <div className="send__button">
-                <button className="send__pointer btn">send</button>
-              </div>
+              <form onSubmit={handleSubmit}>
+                <div className="contact_sub_text">Name *</div>
+                <input
+                  type="text"
+                  className="contact"
+                  placeholder="Enter Your Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+                <div className="contact_sub_text">Email *</div>
+                <input
+                  type="email"
+                  className="contact"
+                  placeholder="Enter Your Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <div className="contact_sub_text">Message *</div>
+                <textarea
+                  placeholder="Enter Your Message"
+                  id="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                ></textarea>
+                <div className="send__button">
+                  <button className="send__pointer btn" type="submit">
+                    Send
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

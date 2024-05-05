@@ -18,7 +18,7 @@ function BodyContent() {
           modern technology.
         </p>
 
-        <button className="btn">
+        <button className="button btn">
           Get Started <img src={right_arrow} alt=""></img>
         </button>
       </div>
