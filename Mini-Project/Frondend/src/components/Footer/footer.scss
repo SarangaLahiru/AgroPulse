@@ -1,0 +1,183 @@
+// :root{
+//     --PrimaryColor: rgb(1, 72, 2);    /* #014802 / rgb(1, 72, 2) / hsl(121, 97%, 14%) */
+//     --SecondaryColor: rgb(1, 122, 4);     /* #017a04 / rgb(1, 122, 4) / hsl(121, 98%, 24%) */
+//     --LightColor: rgb(135, 250, 137);
+//     --gradientColor: linear-gradient(to right, hsl(121, 97%, 14%), hsl(121, 98%, 35%));  /* #014802 / rgb(1, 72, 2) / hsl(121, 97%, 14%) >>> #02ae05 / rgb(2, 174, 5) / hsl(121, 98%, 35%)*/
+//     --whiteColor: hsl(0, 0%, 100%);
+//     --blackColor: hsl(0, 0%, 13%); /* #222222 / rgb(34, 34, 34) / hsl(0, 0%, 13%) */
+//     --textColor: hsl(0, 0%, 0%);
+//     --inputColor: rgb(43, 40, 40);
+//     --bodyColor: rgb(240, 240, 246);
+//     --cardBG: rgb(255, 255,235);
+//   }
+
+// .footer{
+    
+//     .footerLinks{
+//         height: 30vh;
+//         width: 100%;
+//         background-color: var(--PrimaryColor);  
+//         box-shadow: 0 2px 4px rgba(2, 15, 29, 0.4);
+//     }
+// } 
+
+// .footer{
+//     .bottomSection{
+//     height: 3rem;
+//     width: 100%;
+//     background-color: var(--whiteColor);
+//     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.9);
+//     z-index: -100;
+//     }
+// } 
+
+// .footer{
+//     .bottomSection{
+//         h3{
+//             color: var(--PrimaryColor);
+//             align-items: center;
+//             text-align: center;
+//             padding-top: 6px;
+//             font-weight: 500;
+//         }
+//     }   
+// }
+
+// .footerLinks{
+//     padding-left: 55%;
+//     z-index: 100;
+//     .linkGroup{
+        
+//     margin-right: 5rem;
+//         span{
+//             font-weight: 800;
+//             font-size: 1.25rem;
+//             color: var(--whiteColor);
+//         }
+//         &:nth-child(2) { /* Target the second .linkGroup */
+//             .footerList {
+//               &:hover {
+//                 /* Remove hover effect */
+//                 transition: none;
+//                 cursor: initial;
+//                 color: var(--whiteColor); /* Reset hover color */
+//                 font-weight: initial; /* Reset hover font-weight */
+//                 transform: initial; /* Reset hover transform */
+//               }
+//               .cont-icon{
+//                 font-size: 24px;
+//               }
+//             }
+//           }
+
+//         .footerList{
+//             color: var(--whiteColor);
+//             gap: 5px;
+
+//             &:hover{
+//                 transition: 0.3s ease-in-out;
+//                 cursor: pointer;
+//         }
+        
+//         &:hover{
+//             color: var(--LightColor);
+//             font-weight: 600;
+//             transform: translateX(7px);  
+//         }
+//     }
+// }
+   
+// }
+
+:root{
+    --PrimaryColor: rgb(1, 72, 2);    /* #014802 / rgb(1, 72, 2) / hsl(121, 97%, 14%) */
+    --SecondaryColor: rgb(1, 122, 4);     /* #017a04 / rgb(1, 122, 4) / hsl(121, 98%, 24%) */
+    --LightColor: rgb(135, 250, 137);
+    --gradientColor: linear-gradient(to right, hsl(121, 97%, 14%), hsl(121, 98%, 35%));  /* #014802 / rgb(1, 72, 2) / hsl(121, 97%, 14%) >>> #02ae05 / rgb(2, 174, 5) / hsl(121, 98%, 35%)*/
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(0, 0%, 13%); /* #222222 / rgb(34, 34, 34) / hsl(0, 0%, 13%) */
+    --textColor: hsl(0, 0%, 0%);
+    --inputColor: rgb(43, 40, 40);
+    --bodyColor: rgb(240, 240, 246);
+    --cardBG: rgb(255, 255,235);
+  }
+
+.footer {
+    margin-top: 1rem;
+    .footerLinks {
+        height: 30vh;
+        width: 100%;
+        background-color: var(--PrimaryColor);  
+        box-shadow: 0 2px 4px rgba(2, 15, 29, 0.4);
+        display: flex; /* Add display: flex to align items */
+        justify-content: space-between; /* Add to evenly distribute items */
+        align-items: center; /* Add to vertically center items */
+        padding: 0 5%; /* Adjust padding for spacing */
+    }
+}
+
+.footer{
+    .bottomSection{
+        height: 3rem;
+        width: 100%;
+        background-color: var(--whiteColor);
+        box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.9);
+        z-index: -100;
+
+        h3{
+            color: var(--PrimaryColor);
+            align-items: center;
+            text-align: center;
+            padding-top: 6px;
+            font-weight: 500;
+        }
+    } 
+}
+
+
+.linkGroup {
+        flex: 1; /* Add to allow items to take up remaining space */
+        span {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--whiteColor);
+            margin-bottom: 1rem; /* Add margin-bottom for spacing */
+        }
+
+        &:nth-child(2) { /* Target the second .linkGroup */
+            .footerList {
+              &:hover {
+                /* Remove hover effect */
+                transition: none;
+                cursor: initial;
+                color: var(--whiteColor); /* Reset hover color */
+                font-weight: initial; /* Reset hover font-weight */
+                transform: initial; /* Reset hover transform */
+              }
+              .cont-icon{
+                font-size: 24px;
+              }
+            }
+          }
+
+        &.contactInfo {
+            flex: 0; /* Make Contact Info group fixed width */
+            text-align: right; /* Align Contact Info group to the right */
+        }
+
+        .footerList {
+            color: var(--whiteColor);
+            display: flex; /* Add display: flex for horizontal layout */
+            align-items: center; /* Add to vertically center icons */
+            gap: 5px;
+
+            &:hover {
+                transition: 0.3s ease-in-out;
+                cursor: pointer;
+                color: var(--SecondaryColor); /* Reset hover color */
+                font-weight: 600; /* Reset hover font-weight */
+                transform: initial; /* Reset hover transform */
+            }
+        }
+}
+
