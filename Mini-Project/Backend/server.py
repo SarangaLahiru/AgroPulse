@@ -7,7 +7,7 @@ from PIL import Image
 import re
 import bcrypt
 from vonage import Client, Sms
-from detection import predict
+from detection import predict,details,solutions1,solutions2,solutions3,getDetails
 from translate import translations
 from datetime import datetime
 
@@ -17,8 +17,6 @@ from datetime import datetime
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-
-GOOGLE_CLIENT_ID = "796659410119-6p76ghbvl4tmcpmngk1v97u8h0n2g6d0.apps.googleusercontent.com"
 
 # client = Client(key="5e68450e", secret="CX3mEEXHz1cIzQZn")
 client = Client(key="b7faa0b9", secret="zi6PY2HKl3wL5zAu") 
@@ -67,7 +65,6 @@ def extract_name_and_mobile(ocr_text):
     mobile = mobile_match.group(1).strip() if mobile_match else None
     
     return name, mobile
-
 
 
 @app.route('/api/signup', methods=['POST'])
@@ -240,9 +237,23 @@ def detection():
     
     # Call the predict function and pass the image file
     result = predict(image_file)
-    
+    details1= details(result)
+    solution1=solutions1(result)
+    solution2= solutions2(result)
+    solution3= solutions3(result)
     # Return the predicted class as a JSON response
-    return jsonify({'result': result})
+    return jsonify({'result': result, 'details':details1,'solution1':solution1,'solution2':solution2,'solution3':solution3})
+    
+@app.route('/api/detection_details', methods=['POST'])
+def detection_details():
+    
+    details = request.json
+    
+    # Call the predict function and pass the image file
+    
+    dis= getDetails(details)
+    # Return the predicted class as a JSON response
+    return jsonify({'solution_details': dis})
     
 
 
