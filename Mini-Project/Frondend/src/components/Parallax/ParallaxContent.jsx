@@ -1,10 +1,10 @@
 import React from "react";
-import "./ParallaxContent.css";
 import { Parallax } from "react-parallax";
+import { useStateContext } from "../../context/contextProvider";
+import "./ParallaxContent.css";
 import imageOne from "/images/Good-Agricultural-Practices-Training-in-Kenya.jpg";
 import imageSecond from "/images/hgic_food gardening_colorado-potato-beetle-582966_1920.jpg";
 import imageThrid from "/images/shutterstock_1450482422.jpg";
-import { useStateContext } from "../../context/contextProvider";
 
 function ParallaxContent() {
   const { setTranslations, translations } = useStateContext();
@@ -20,7 +20,7 @@ function ParallaxContent() {
           </div>
         </div>
       </Parallax>
-      <div className="right-text" data-aos="fade-left">
+      <div className="right-text w-full overflow-hidden" data-aos="fade-left">
         <Parallax strength={300} bgImage={imageSecond} className="images">
           <div className="hero container">
             <div className="hero-text move">

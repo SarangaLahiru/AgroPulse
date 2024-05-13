@@ -7,9 +7,7 @@ from PIL import Image
 import re
 import bcrypt
 from vonage import Client, Sms
-#from google.oauth2 import id_token
-#from google.auth.transport import requests
-#from detection import predict
+from detection import predict
 from translate import translations
 from datetime import datetime
 
@@ -71,10 +69,6 @@ def extract_name_and_mobile(ocr_text):
     return name, mobile
 
 
-@app.route('/api/data')
-def get_data():
-    data = {'message': 'Hello from Flask API'}
-    return jsonify(data)
 
 @app.route('/api/signup', methods=['POST'])
 def signup():
@@ -234,43 +228,6 @@ def send_sms_message(phone, message):
         print(f"Failed to send SMS: {e}")
         return False
 
-
-    # Validate Google ID token
-    id_token_raw = request.args.get('id_token')
-    if not id_token_raw:
-        return jsonify({'error': 'Missing Google ID token'}), 400
-    
-    try:
-        id_info = id_token.verify_oauth2_token(id_token_raw, requests.Request(), GOOGLE_CLIENT_ID)
-        user_email = id_info['email']
-        
-        # Check if the user already exists in the database
-        user = users_collection.find_one({'email': user_email})
-        if user:
-            # User exists, generate JWT token or session and return
-            # Example: session['user'] = user_email
-            return jsonify({'message': 'User logged in successfully'}), 200
-        else:
-            # User does not exist, create a new user account
-            # You can also redirect the user to a signup page with prefilled data
-            return jsonify({'error': 'User does not exist. Please sign up.'}), 404
-    
-    except ValueError as e:
-        return jsonify({'error': 'Invalid Google ID token'}), 400
-
-@app.route('/api/google_signup', methods=['POST'])
-def signup_google():
-    token = request.json.get('token')
-    if not token:
-        return jsonify({'error': 'Token is required'}), 400
-    
-    try:
-        id_info = id_token.verify_oauth2_token(token, requests.Request(), GOOGLE_CLIENT_ID)
-        # You can extract user details from id_info and save to database
-        # Example: name = id_info['name'], email = id_info['email']
-        return jsonify({'message': 'User signed up successfully'}), 200
-    except ValueError as e:
-        return jsonify({'error': 'Invalid token'}), 400
 
 @app.route('/api/detection', methods=['POST'])
 def detection():

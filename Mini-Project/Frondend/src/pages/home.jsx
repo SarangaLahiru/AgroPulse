@@ -1,16 +1,13 @@
 // import { Button } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
+import { Carousel } from "flowbite-react";
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axioaClient from '../axios-Client';
-import { useStateContext } from '../context/contextProvider';
 import BodyContent from '../components/BodyContent';
 import ContactForm from '../components/ContactForm/ContactForm';
 import ParallaxContent from '../components/Parallax/ParallaxContent';
-import ImageSlider from '../components/ImageSlider/ImageSlider';
-import { Button } from "flowbite-react";
-import { Carousel } from "flowbite-react";
-import FadeIn from 'react-fade-in';
+import { useStateContext } from '../context/contextProvider';
 
 
 export default function Home() {
@@ -40,7 +37,7 @@ export default function Home() {
 
 
   return (
-    <div>
+    <div className=' w-full overflow-hidden'>
 
       {/* <h2 className=''>{translations.home}</h2> */}
 
