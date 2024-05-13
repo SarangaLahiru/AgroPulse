@@ -7,7 +7,7 @@ from PIL import Image
 import re
 import bcrypt
 from vonage import Client, Sms
-from detection import predict,details,solutions1,solutions2,solutions3,getDetails
+from detection import predict,details,get_solutions,getDetails
 from translate import translations
 from datetime import datetime
 
@@ -50,7 +50,7 @@ def validate_password(password):
     
     return True  # Password is valid
     
-    return True
+    
 def extract_name_and_mobile(ocr_text):
     # Define the regular expression patterns for extracting name and mobile number
     name_pattern = re.compile(r'Name:\s*(.*)', re.IGNORECASE)
@@ -238,12 +238,12 @@ def detection():
     # Call the predict function and pass the image file
     result = predict(image_file)
     details1= details(result)
-    solution1=solutions1(result)
-    solution2= solutions2(result)
-    solution3= solutions3(result)
-    # Return the predicted class as a JSON response
-    return jsonify({'result': result, 'details':details1,'solution1':solution1,'solution2':solution2,'solution3':solution3})
+     # Get details and solutions for the detected pest
+    solutions = get_solutions(result)
     
+    # Return the result along with details and solutions as a JSON response
+    return jsonify({'result': result,'details':details1, 'solution1': solutions[0], 'solution2': solutions[1], 'solution3': solutions[2]})
+
 @app.route('/api/detection_details', methods=['POST'])
 def detection_details():
     

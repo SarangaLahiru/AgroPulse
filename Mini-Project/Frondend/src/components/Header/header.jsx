@@ -1,35 +1,29 @@
-import * as React from 'react';
+import { Avatar, IconButton, Menu, MenuItem, Slide, Stack } from '@mui/material';
 import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
-import List from '@mui/material/List';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { IoIosArrowDown } from "react-icons/io";
+import axios from 'axios';
+import * as React from 'react';
+import FadeIn from 'react-fade-in';
+import { IoCall, IoDocumentText, IoDownload, IoHelpCircleOutline, IoHome, IoInformationCircleOutline, IoLanguage, IoSettings } from "react-icons/io5";
 import { RiMenu2Fill } from "react-icons/ri";
 import { TiArrowSortedDown } from "react-icons/ti";
-import './header.css';
-import FadeIn from 'react-fade-in';
-import { deepOrange, deepPurple } from '@mui/material/colors';
-import { Slide, IconButton, Menu, MenuItem, Stack, Avatar } from '@mui/material';
-import { AccountCircle } from '@mui/icons-material';
-import { IoHome, IoDownload, IoHelpCircleOutline, IoInformationCircleOutline, IoLanguage, IoSettings, IoDocumentText, IoCall } from "react-icons/io5";
-import { useStateContext } from '../../context/contextProvider';
 import { Link, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import axios from 'axios';
+import { useStateContext } from '../../context/contextProvider';
+import './header.css';
 
 
 export default function Header() {
@@ -264,6 +258,7 @@ export default function Header() {
                     <FormControl sx={{ m: 1, minWidth: 120 }} color='success'>
                       <InputLabel sx={{ color: '#014802' }} color='success'>Language</InputLabel>
                       <Select
+
                         native
                         value={selectedLanguage}
                         onChange={handleLanguageChange}

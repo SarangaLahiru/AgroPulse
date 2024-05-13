@@ -258,8 +258,11 @@ export default function PestImageUpload() {
 
             .then(response => {
                 const dis = response.data.solution_details
-                    .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // Replace **text** with bold text
-                    .replace(/\*/g, '<br><br>');
+
+                    .replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>') // Replace **text** with bold text
+                    .replace(/\*/g, '<br>') // Replace * with line break
+                    .replace(/(\d+\.\s+)/g, '<br>') // Add line break after each number followed by a dot and space
+                    .replace(/\:/g, '<br>');
 
                 console.log(response)
                 setSolutionDis(dis)
@@ -422,7 +425,7 @@ export default function PestImageUpload() {
                                             </CardContent>
                                             <CardActions>
                                                 <Button color='success' size="small">Share</Button>
-                                                <Button color='success' size="small">Learn More</Button>
+                                                <Button color='success' size="small" onClick={() => getSolutionDetails(solution1)}>Learn More</Button>
                                             </CardActions>
                                         </Card>
                                         <Card sx={{ maxWidth: 345, backgroundColor: "red", marginLeft: "10px" }} className='m-10'>
@@ -442,7 +445,7 @@ export default function PestImageUpload() {
                                             </CardContent>
                                             <CardActions>
                                                 <Button color='success' size="small">Share</Button>
-                                                <Button color='success' size="small">Learn More</Button>
+                                                <Button color='success' size="small" onClick={() => getSolutionDetails(solution2)}>Learn More</Button>
                                             </CardActions>
                                         </Card>
                                         <Card sx={{ maxWidth: 345, backgroundColor: "red", marginLeft: "10px" }} className='m-10'>
@@ -501,13 +504,13 @@ export default function PestImageUpload() {
                         <Box>
 
                             <div className='h-96 rounded-2xl'>
-                                <img className='m-auto rounded-2xl' src="./images/logo2.png" alt="" />
-                                <div className=' text-center w-1/2 m-auto mt-4'>
-                                    <h2 className='max-sm:text-xl text-3xl font-bold text-zinc-600'>See Environment health solutions</h2>
-                                    <p className='max-sm:text-sm'>Environmentally healthy pest solutions offer eco-conscious methods to manage infestations without harming ecosystems. By utilizing natural deterrents and sustainable practices, these solutions prioritize the health of both the environment and inhabitants.</p>
-                                    <h2 className=' text-lg'>Solutions for {pest}</h2>
+                                <img className=' m-auto rounded-2xl' src="./images/logo2.png" alt="" />
+                                <div className='  w-1/2 m-auto mt-4'>
+                                    <h2 className='text-center max-sm:text-xl text-3xl font-bold text-zinc-600'>See Environment health solutions</h2>
+                                    <p className='text-center max-sm:text-sm'>Environmentally healthy pest solutions offer eco-conscious methods to manage infestations without harming ecosystems. By utilizing natural deterrents and sustainable practices, these solutions prioritize the health of both the environment and inhabitants.</p>
+                                    <h2 className='text-center text-xl text-green-600 font-bold'>Solutions for {pest}</h2>
                                     <div className='left-0 flex max-sm:flex-wrap w-full absolute m-auto'>
-                                        <div className='mt-4' dangerouslySetInnerHTML={{ __html: solutionDis }} />
+                                        <div style={{ width: "1000px" }} className='mt-5 w-96 shadow-2xl px-10 m-auto py-5' dangerouslySetInnerHTML={{ __html: solutionDis }} />
 
 
 

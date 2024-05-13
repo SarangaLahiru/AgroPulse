@@ -20,7 +20,7 @@ function ParallaxContent() {
           </div>
         </div>
       </Parallax>
-      <div className="right-text w-full overflow-hidden" data-aos="fade-left">
+      <div className="right-text" data-aos="fade-left">
         <Parallax strength={300} bgImage={imageSecond} className="images">
           <div className="hero container">
             <div className="hero-text move">
