@@ -4,7 +4,7 @@ import img1 from "../assets/Support/Card1.png"
 import img2 from "../assets/Support/Card2.png"
 import img3 from "../assets/Support/Card3.png"
 import FaqAccordion from '../components/Accordion/Accordion'
-import { Margin } from '@mui/icons-material'
+import { useStateContext } from "../context/contextProvider";
 
 
 
@@ -17,29 +17,31 @@ function Support() {
   
     
   };
+  const { setTranslations, translations } = useStateContext();
+
   
   return (
     <div className="m-1">
-        <h2 className="font-semibold text-xl text-center pt-6  md:text-2xl md:pt-7 xl:text-3xl xl:text-left xl:px-20 xl:pt-10 " >GET SUPPORT FOR YOUR AGROPULSE EXPERIENCE</h2>
-        <h3 className="text-3xl text-center font-bold md:text-4xl xl:text-left xl:text-5xl mx-20 text-green-700" >Support</h3>
+        <h2 className="font-semibold text-xl text-center pt-6  md:text-2xl md:pt-7 xl:text-3xl xl:text-left xl:px-20 xl:pt-10 " >{translations.Support_1}</h2>
+        <h3 className="text-3xl text-center font-bold md:text-4xl xl:text-left xl:text-5xl mx-20 text-green-700" >{translations.Support_2}</h3>
        
 
 
 
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 m-20 " >
       <SupportDetail
-        title="Get Assistance When You Need It"
-        content="Discover helpful resources and reach out for support to ensure a seamless AgroPulse experience."
+        title={translations.Support_3t1}
+        content={translations.Support_3c1}
         imageSrc={img1}
       />
       <SupportDetail
-        title="FAQs (Frequently Asked Questions)"
-        content="Explore common queries to find quick solutions and insights about AgroPulse."
+        title={translations.Support_3t2}
+        content={translations.Support_3c2}
         imageSrc={img2}
       />
       <SupportDetail
-        title="User Guides and Tutorials"
-        content="Unlock the full potential of AgroPulse with step-by-step guides and tutorials."
+        title={translations.Support_3t3}
+        content={translations.Support_3c3}
         imageSrc={img3}
       />
       
@@ -54,39 +56,36 @@ function Support() {
         md:text-2xl md:pt-8  md:my-1 md:mb-10 md:text-center
         mt-8 text-center mb-4" 
         
-        >FAQs (Frequently Asked Questions)</h2>
+        >{translations.Support_3t2}</h2>
             <FaqAccordion
-             topic="How do I create an account on AgroPulse?"
-             details="To create an account on AgroPulse, simply click on the 'Sign Up' button on the homepage and follow the prompts to enter your details, such as your name, email address, and password. Once you've completed the registration process, you'll be able to access all the features of AgroPulse."/>
+             topic={translations.Support_act1}
+             details={translations.Support_acc1}/>
 
              <FaqAccordion
-             topic="What types of crops does AgroPulse support?"
-             details="We take data security and privacy seriously at AgroPulse. Your data is encrypted and stored securely on our servers, and we adhere to industry best practices to protect it from unauthorized access or misuse. For more information about our data security measures, please refer to our Privacy Policy.
-             "/>
+             topic={translations.Support_act2}
+             details={translations.Support_acc2}/>
 
 
               <FaqAccordion
-             topic="How secure is my data on AgroPulse?"
-             details="We take data security and privacy seriously at AgroPulse. Your data is encrypted and stored securely on our servers, and we adhere to industry best practices to protect it from unauthorized access or misuse. For more information about our data security measures, please refer to our Privacy Policy.
-             "/>
+             topic={translations.Support_act3}
+             details={translations.Support_acc3}/>
 
 
               <FaqAccordion
-             topic="Can I use AgroPulse on mobile devices?"
-             details="Yes, AgroPulse is optimized for use on both desktop and mobile devices. You can access our web app using your smartphone or tablet's web browser to monitor your fields, view predictions, and manage your account on the go.
-             "/>
+             topic={translations.Support_act4}
+             details={translations.Support_acc4}/>
 
 
               <FaqAccordion
-             topic="How can I provide feedback or suggestions for improving AgroPulse?"
-             details="We value your feedback and welcome suggestions for improving AgroPulse. You can share your feedback by filling out the feedback form on the Support page or by contacting our support team directly. We appreciate your input and use it to make AgroPulse better for all users"/>
+             topic={translations.Support_act5}
+             details={translations.Support_acc5}/>
              
 
     </div>
     
     <button className="h-16 w-40 float-right rounded-full text-white xl:mb-20 xl:mx-20 
     md:mx-15 md:mb-15 mx- mb-10" style={btnStyle} >
-  More
+  {translations.Support_btn}
 </button>
 
     </div>
