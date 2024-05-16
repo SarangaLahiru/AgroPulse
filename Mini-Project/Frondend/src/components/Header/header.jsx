@@ -289,7 +289,7 @@ export default function Header() {
                 {/* <AccountCircle sx={{ color: '#014802', fontSize:'50px'}}/> */}
                 <Stack direction="row" spacing={1}>
                   <Avatar
-                    sx={{ width: 56, height: 56, backgroundColor: "green" }}
+                    sx={{ width: 60, height: 60, backgroundColor: "green" }}
 
 
 

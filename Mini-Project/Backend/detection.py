@@ -1,11 +1,11 @@
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
+#from tensorflow.keras.models import load_model
+#from tensorflow.keras.preprocessing import image
 import numpy as np
 import os
-import google.generativeai as genai
+#import google.generativeai as genai
 
 # Load the trained machine learning model
-model = load_model('insect_model1.h5')
+#model = load_model('insect_model1.h5')
 
 # Define class names
 class_names = [

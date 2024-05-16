@@ -12,10 +12,10 @@
 }
 
 .footer {
-  margin-top: 1rem;
+  margin-top: 5rem;
 }
 .footer .footerLinks {
-  height: 30vh;
+  height: 40vh;
   width: 100%;
   background-color: var(--PrimaryColor);
   box-shadow: 0 2px 4px rgba(2, 15, 29, 0.4);
@@ -26,13 +26,13 @@
 }
 
 .footer .bottomSection {
-  height: 3rem;
+  height: 2rem;
   width: 100%;
   background-color: var(--whiteColor);
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.9);
   z-index: -100;
 }
-.footer .bottomSection h3 {
+.footer .bottomSection h4 {
   color: var(--PrimaryColor);
   align-items: center;
   text-align: center;
@@ -48,6 +48,7 @@
   font-size: 1.25rem;
   color: var(--whiteColor);
   margin-bottom: 1rem; /* Add margin-bottom for spacing */
+ 
 }
 .linkGroup:nth-child(2) { /* Target the second .linkGroup */ }
 .linkGroup:nth-child(2) .footerList:hover {

@@ -16,7 +16,7 @@ const Footer = () => {
 
     return (
         <section className='footer'>
-            <div className="footerLinks flex" data-aos='fade-up' data-aos-duration='4000'>
+            <div className="footerLinks flex">
                 {/*Group One - Our Services*/}
                 <div className="linkGroup" data-aos='fade-up' data-aos-duration='000'>
                     <span className="groupTitle">
@@ -68,7 +68,7 @@ const Footer = () => {
             </div>
 
             <div className="bottomSection">
-                <h3>AgroPluse © 2024 All Right Reserved</h3>
+                <h4>AgroPluse © 2024 All Right Reserved</h4>
             </div>
 
         </section>
