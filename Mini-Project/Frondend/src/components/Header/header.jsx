@@ -235,8 +235,8 @@ export default function Header() {
             <li className={location.pathname === '/detection' ? 'selected' : ''}>
               <Link to='/detection'><Button variant="text">{translations.detection}</Button></Link>
             </li>
-            <li className={selectedNavItem === 'support' ? 'selected' : ''}>
-              <Button variant="text" onClick={() => handleNavItemClick('support')}>{translations.support}</Button>
+            <li className={location.pathname === '/support' ? 'selected' : ''}>
+            <Link to='/support'> <Button variant="text" onClick={() => handleNavItemClick('support')}>{translations.support}</Button></Link>
             </li>
             <li className={selectedNavItem === 'about' ? 'selected' : ''}>
               <Button variant="text" onClick={() => handleNavItemClick('about')}>{translations.about}</Button>
