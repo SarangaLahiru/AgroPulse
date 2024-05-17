@@ -18,9 +18,9 @@ const Footer = () => {
 
     return (
         <section className='footer'>
-            <div className="footerLinks flex" data-aos='fade-up' data-aos-duration='4000'>
+            <div className="footerLinks flex">
                 {/*Group One - Our Services*/}
-                <div className="linkGroup" data-aos='fade-up' data-aos-duration='000'>
+                <div className="linkGroup" data-aos='fade-up' data-aos-duration='4000'>
                     <span className="groupTitle">
                         Our Services
                     </span>
@@ -48,7 +48,7 @@ const Footer = () => {
         
 
         {/* Group Two - Contact Info */}
-        <div className='linkGroup contactInfo'>
+        <div className='linkGroup contactInfo'data-aos='fade-up' data-aos-duration='4000'>
           <div className='groupTitle'>Contact Info</div>
 
           <li className='footerList'>
