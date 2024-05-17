@@ -5,6 +5,8 @@ translations = {
         'about': 'ABOUT',
         'detection': 'DETECTION',
         'support': 'SUPPORT',
+        'support_p': 'Support',
+        'contact':'Contact',
         'detection_p1':"DETECT PEST IN YOUR FIELD TO PROTECT CROP",
         'detection_p2':"Pest Detection",
         'detection_b1':"DETECTION",
@@ -48,8 +50,16 @@ translations = {
 
         'Support_act5':'How can I provide feedback or suggestions for improving AgroPulse?',
         'Support_acc5':'We value your feedback and welcome suggestions for improving AgroPulse. You can share your feedback by filling out the feedback form on the Support page or by contacting our support team directly. We appreciate your input and use it to make AgroPulse better for all users',
-        'Support_btn':'More'
-        
+        'Support_btn':'More',
+
+        'submit':'Submit',
+        'contact_form_p':'If you have any questions, problems, or feedback get in touch here:',
+        'name':'Name',
+        'email':'Email',
+        'message':'Message',
+        'input_name':'Enter Your Name',
+        'input_email':'Enter Your Email',
+        'input_message':'Enter Your Message',
 
 
 
@@ -111,8 +121,20 @@ translations = {
 
         'Support_act5':'AgroPulse වැඩිදියුණු කිරීම සඳහා ප්‍රතිපෝෂණ හෝ යෝජනා ලබා දෙන්නේ කෙසේද?',
         'Support_acc5':'අපි ඔබේ ප්‍රතිපෝෂණය අගය කරන අතර AgroPulse වැඩිදියුණු කිරීම සඳහා යෝජනා සාදරයෙන් පිළිගනිමු. සහාය පිටුවේ ඇති ප්‍රතිපෝෂණ පෝරමය පුරවා හෝ අපගේ සහාය කණ්ඩායම කෙලින්ම සම්බන්ධ කර ගැනීමෙන් ඔබට ඔබේ ප්‍රතිපෝෂණය බෙදා ගත හැක. අපි ඔබගේ ආදානය අගය කරන අතර සියලුම පරිශීලකයින් සඳහා AgroPulse වඩා හොඳ කිරීමට එය භාවිතා කරන්නෙමු',
-        'Support_btn':'තව'
+        'Support_btn':'තව',
         
+
+        'contact':'අප සමඟ සම්බන්ධ වීම',
+        'submit':'යොමු කරන්න',
+        'contact_Form_p':'ඔබට කිසියම් ප්‍රශ්න, ගැටළු, හෝ අදහස් ඇත්නම් අප වෙත යොමු කරන්න :',
+        'name':'නම',
+        'email':'විද්‍යුත් තැපෑල',
+        'message':'පණිවිඩය',
+        'input_name':'ඔබේ නම ඇතුලත් කරන්න',
+        'input_email':'ඔබේ විද්‍යුත් තැපෑල ඇතුලත් කරන්න',
+        'input_message':'ඔබේ පණිවිඩය ඇතුලත් කරන්න',
+        'support_p': 'ඔබගේ සහයට',
+       
 
     }
 }

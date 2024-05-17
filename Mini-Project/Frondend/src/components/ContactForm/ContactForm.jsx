@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "./ContactForm.css";
+import { useStateContext } from "../../context/contextProvider";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const { setTranslations, translations } = useStateContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,6 +36,7 @@ const ContactForm = () => {
         text: "Something went wrong. Please try again later.",
         icon: "error",
         confirmButtonText: "OK",
+        confirmButtonColor: "#014802",
       });
     }
   };
@@ -41,44 +44,44 @@ const ContactForm = () => {
     <div className="contact  container" data-aos="fade-up">
       <div className="row">
         <div className="contact__box">
-          <h2 className="hire__text">Support</h2>
-          <h1 className="hire__text">Contact</h1>
+          <h2 className="hire__text">{translations.support_p}</h2>
+          <h1 className="hire__text">{translations.contact}</h1>
           <p className="hire__text">
-            If you have any questions, problems, or feedback get in touch here:
+          {translations.contact_Form_p}
           </p>
         </div>
 
         <div className="input__box">
           <form onSubmit={handleSubmit}>
-            <div className="contact_sub_text">Name *</div>
+            <div className="contact_sub_text ">{translations.name} *</div>
             <input
               type="text"
               className="contact"
-              placeholder="Enter Your Name"
+              placeholder={translations.input_name}
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
             />
-            <div className="contact_sub_text">Email *</div>
+            <div className="contact_sub_text">{translations.email} *</div>
             <input
               type="email"
               className="contact"
-              placeholder="Enter Your Email"
+              placeholder={translations.input_email}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <div className="contact_sub_text">Message *</div>
+            <div className="contact_sub_text">{translations.message} *</div>
             <textarea
-              placeholder="Enter Your Message"
+              placeholder={translations.input_message}
               id="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
             ></textarea>
             <div className="send__button">
-              <button className="send__pointer btn" type="submit">
-                Submit
+              <button className="send__pointer btn " type="submit">
+              {translations.submit}
               </button>
             </div>
           </form>
