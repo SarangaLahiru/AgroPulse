@@ -218,9 +218,6 @@ button.send__pointer {
     font-weight: 500;
   }
 }
-/* Moblie Large (phones, 425px and down) 
-@media only screen and (min-width: 425px) {
-} */
 
 /* Tablet ( 768px and down) */
 @media only screen and (min-width: 768px) {
