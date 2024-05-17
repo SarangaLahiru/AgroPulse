@@ -1,183 +1,303 @@
-// :root{
-//     --PrimaryColor: rgb(1, 72, 2);    /* #014802 / rgb(1, 72, 2) / hsl(121, 97%, 14%) */
-//     --SecondaryColor: rgb(1, 122, 4);     /* #017a04 / rgb(1, 122, 4) / hsl(121, 98%, 24%) */
-//     --LightColor: rgb(135, 250, 137);
-//     --gradientColor: linear-gradient(to right, hsl(121, 97%, 14%), hsl(121, 98%, 35%));  /* #014802 / rgb(1, 72, 2) / hsl(121, 97%, 14%) >>> #02ae05 / rgb(2, 174, 5) / hsl(121, 98%, 35%)*/
-//     --whiteColor: hsl(0, 0%, 100%);
-//     --blackColor: hsl(0, 0%, 13%); /* #222222 / rgb(34, 34, 34) / hsl(0, 0%, 13%) */
-//     --textColor: hsl(0, 0%, 0%);
-//     --inputColor: rgb(43, 40, 40);
-//     --bodyColor: rgb(240, 240, 246);
-//     --cardBG: rgb(255, 255,235);
-//   }
-
-// .footer{
-    
-//     .footerLinks{
-//         height: 30vh;
-//         width: 100%;
-//         background-color: var(--PrimaryColor);  
-//         box-shadow: 0 2px 4px rgba(2, 15, 29, 0.4);
-//     }
-// } 
-
-// .footer{
-//     .bottomSection{
-//     height: 3rem;
-//     width: 100%;
-//     background-color: var(--whiteColor);
-//     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.9);
-//     z-index: -100;
-//     }
-// } 
-
-// .footer{
-//     .bottomSection{
-//         h3{
-//             color: var(--PrimaryColor);
-//             align-items: center;
-//             text-align: center;
-//             padding-top: 6px;
-//             font-weight: 500;
-//         }
-//     }   
-// }
-
-// .footerLinks{
-//     padding-left: 55%;
-//     z-index: 100;
-//     .linkGroup{
-        
-//     margin-right: 5rem;
-//         span{
-//             font-weight: 800;
-//             font-size: 1.25rem;
-//             color: var(--whiteColor);
-//         }
-//         &:nth-child(2) { /* Target the second .linkGroup */
-//             .footerList {
-//               &:hover {
-//                 /* Remove hover effect */
-//                 transition: none;
-//                 cursor: initial;
-//                 color: var(--whiteColor); /* Reset hover color */
-//                 font-weight: initial; /* Reset hover font-weight */
-//                 transform: initial; /* Reset hover transform */
-//               }
-//               .cont-icon{
-//                 font-size: 24px;
-//               }
-//             }
-//           }
-
-//         .footerList{
-//             color: var(--whiteColor);
-//             gap: 5px;
-
-//             &:hover{
-//                 transition: 0.3s ease-in-out;
-//                 cursor: pointer;
-//         }
-        
-//         &:hover{
-//             color: var(--LightColor);
-//             font-weight: 600;
-//             transform: translateX(7px);  
-//         }
-//     }
-// }
-   
-// }
-
-:root{
-    --PrimaryColor: rgb(1, 72, 2);    /* #014802 / rgb(1, 72, 2) / hsl(121, 97%, 14%) */
-    --SecondaryColor: rgb(1, 122, 4);     /* #017a04 / rgb(1, 122, 4) / hsl(121, 98%, 24%) */
-    --LightColor: rgb(135, 250, 137);
-    --gradientColor: linear-gradient(to right, hsl(121, 97%, 14%), hsl(121, 98%, 35%));  /* #014802 / rgb(1, 72, 2) / hsl(121, 97%, 14%) >>> #02ae05 / rgb(2, 174, 5) / hsl(121, 98%, 35%)*/
-    --whiteColor: hsl(0, 0%, 100%);
-    --blackColor: hsl(0, 0%, 13%); /* #222222 / rgb(34, 34, 34) / hsl(0, 0%, 13%) */
-    --textColor: hsl(0, 0%, 0%);
-    --inputColor: rgb(43, 40, 40);
-    --bodyColor: rgb(240, 240, 246);
-    --cardBG: rgb(255, 255,235);
-  }
+:root {
+  --PrimaryColor: #014802;
+  --SecondaryColor: rgb(1, 122, 4);
+  --LightColor: rgb(135, 250, 137);
+  --gradientColor: linear-gradient(to bottom, hsl(121, 97%, 14%), hsl(121, 98%, 35%));
+  --gradientColor2: linear-gradient(to right, hsl(121, 97%, 14%), hsl(121, 98%, 35%), hsl(121, 97%, 14%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 13%);
+  --textColor: hsl(0, 0%, 0%);
+  --inputColor: rgb(43, 40, 40);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(255, 255, 235);
+}
 
 .footer {
-    margin-top: 1rem;
-    .footerLinks {
-        height: 30vh;
-        width: 100%;
-        background-color: var(--PrimaryColor);  
-        box-shadow: 0 2px 4px rgba(2, 15, 29, 0.4);
-        display: flex; /* Add display: flex to align items */
-        justify-content: space-between; /* Add to evenly distribute items */
-        align-items: center; /* Add to vertically center items */
-        padding: 0 5%; /* Adjust padding for spacing */
+  margin-top: 0.5rem;
+
+  .bottom-logo {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    /* Center the image horizontally */
+    margin-bottom: 1rem;
+    /* Adjust margin as needed */
+
+    img {
+      max-width: 400px;
+      /* Ensure the image doesn't exceed its container's width */
+      height: auto;
+      /* Maintain aspect ratio */
     }
+  }
+
+  .footerLinks {
+    height: auto;
+    width: 100%;
+    background-color: var(--PrimaryColor);
+    box-shadow: 0 2px 4px rgba(2, 15, 29, 0.4);
+    display: flex;
+    justify-content: space-between;
+    /* Updated to space between */
+    align-items: center;
+    padding: 20px 5%;
+    /* Updated padding */
+  }
+
+  .bottomSection {
+    height: 3rem;
+    width: 100%;
+    background: var(--gradientColor2);
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.9);
+    z-index: -100;
+
+    h3 {
+      color: var(--whiteColor);
+      text-align: center;
+      /* Updated text alignment */
+      line-height: 3rem;
+      /* Updated to vertically center */
+      font-weight: 500;
+    }
+  }
+
+  .linkGroup {
+    flex: 1;
+
+    .groupTitle {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--whiteColor);
+      margin-bottom: 1rem;
+    }
+
+    &:nth-child(2) {
+      bottom: 0px;
+      .footerList {
+        &:hover {
+          transition: none;
+          cursor: initial;
+          color: var(--whiteColor);
+          font-weight: initial;
+          transform: initial;
+        }
+
+        .cont-icon {
+          font-size: 24px;
+        }
+
+        .phoneNumber{
+          white-space: nowrap; // Prevent text from wrapping to the next line
+          overflow: hidden; // Hide any overflow
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    &.contactInfo {
+      flex: 0;
+      text-align: left;
+    }
+
+    .footerList {
+      padding-top: 10px;
+      padding-left: 20px;
+      color: var(--whiteColor);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      &:hover {
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+        color: var(--LightColor);
+        font-weight: 600;
+        transform: translateX(5px);
+        transform: initial;
+        text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9);
+      }
+    }
+  }
 }
 
-.footer{
-    .bottomSection{
-        height: 3rem;
-        width: 100%;
-        background-color: var(--whiteColor);
-        box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.9);
-        z-index: -100;
 
-        h3{
-            color: var(--PrimaryColor);
-            align-items: center;
-            text-align: center;
-            padding-top: 6px;
-            font-weight: 500;
-        }
-    } 
-}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .footer {
+    margin-top: 0.5rem;
 
+    .bottom-logo {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      /* Center the image horizontally */
+      margin-bottom: 1rem;
+      /* Adjust margin as needed */
 
-.linkGroup {
-        flex: 1; /* Add to allow items to take up remaining space */
-        span {
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: var(--whiteColor);
-            margin-bottom: 1rem; /* Add margin-bottom for spacing */
-        }
+      img {
+        width: 50%;
+        /* Ensure the image doesn't exceed its container's width */
+        height: auto;
+        /* Maintain aspect ratio */
+      }
+    }
 
-        &:nth-child(2) { /* Target the second .linkGroup */
-            .footerList {
-              &:hover {
-                /* Remove hover effect */
-                transition: none;
-                cursor: initial;
-                color: var(--whiteColor); /* Reset hover color */
-                font-weight: initial; /* Reset hover font-weight */
-                transform: initial; /* Reset hover transform */
-              }
-              .cont-icon{
-                font-size: 24px;
-              }
-            }
-          }
+    .footerLinks {
+      height: auto;
+      display: grid;
+      justify-content: space-between;
+      /* Updated to space between */
+      align-items: center;
+      padding: 20px 5%;
+      /* Updated padding */
+    }
 
-        &.contactInfo {
-            flex: 0; /* Make Contact Info group fixed width */
-            text-align: right; /* Align Contact Info group to the right */
-        }
+    .bottomSection {
+      height: 3rem;
+      width: 100%;
+      background-color: var(--gradientColor2);
+      box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.9);
+      z-index: -100;
+
+      h3 {
+        color: var(--PrimaryColor);
+        text-align: center;
+        /* Updated text alignment */
+        line-height: 3rem;
+        /* Updated to vertically center */
+        font-weight: 500;
+      }
+    }
+
+    .linkGroup {
+      .groupTitle {
+        font-weight: 500;
+        font-size: 1.25rem;
+        margin-bottom: 0rem;
+      }
+
+      &:nth-child(2) {
+        margin-top: 20px;
 
         .footerList {
-            color: var(--whiteColor);
-            display: flex; /* Add display: flex for horizontal layout */
-            align-items: center; /* Add to vertically center icons */
-            gap: 5px;
+          display: inline-flex;
+          gap: 20px;
 
-            &:hover {
-                transition: 0.3s ease-in-out;
-                cursor: pointer;
-                color: var(--SecondaryColor); /* Reset hover color */
-                font-weight: 600; /* Reset hover font-weight */
-                transform: initial; /* Reset hover transform */
-            }
+
+          .phoneNumber {
+            position: relative;
+            padding-right: 20px;
+
+          }
+
+          .cont-icon {
+            font-size: 15px;
+          }
         }
+      }
+
+      &.contactInfo {
+        text-align: left;
+      }
+
+      .footerList {
+        padding-top: 10px;
+        padding-left: 20px;
+        display: inline-flex;
+        gap: 6px;
+      }
+    }
+  }
 }
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .footer {
+    margin-top: 0.5rem;
+
+    .bottom-logo {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      /* Center the image horizontally */
+      margin-bottom: 1rem;
+      /* Adjust margin as needed */
+
+      img {
+        width: 50%;
+        /* Ensure the image doesn't exceed its container's width */
+        height: auto;
+        /* Maintain aspect ratio */
+      }
+    }
+
+    .footerLinks {
+      height: auto;
+      display: inline-flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 20px 5%;
+      /* Updated padding */
+    }
+
+    .bottomSection {
+      height: 3rem;
+      width: 100%;
+      background-color: var(--gradientColor2);
+      box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.9);
+      z-index: -100;
+
+      h3 {
+        color: var(--PrimaryColor);
+        text-align: center;
+        /* Updated text alignment */
+        line-height: 3rem;
+        /* Updated to vertically center */
+        font-weight: 500;
+      }
+    }
+
+    .linkGroup {
+      .groupTitle {
+        font-weight: 500;
+        font-size: 1.25rem;
+        margin-bottom: 0rem;
+      }
+
+      &:nth-child(2) {
+        margin-top: 20px;
+
+        .footerList {
+          display: inline-flex;
+          gap: 20px;
+
+
+          .phoneNumber {
+            position: relative;
+            padding-right: 20px;
+
+          }
+
+          .cont-icon {
+            font-size: 15px;
+          }
+        }
+      }
+
+      &.contactInfo {
+        text-align: left;
+      }
+
+      
+    }
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
