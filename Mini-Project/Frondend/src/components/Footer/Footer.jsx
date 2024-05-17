@@ -6,6 +6,9 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { FaPhone } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
 import logo from '../../../public/images/logo2.png';
+import { Link, useLocation } from 'react-router-dom';
+
+import { useStateContext } from '../../context/contextProvider';
 
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -16,28 +19,33 @@ const Footer = () => {
     Aos.init({ duration: 2000 });
   }, []);
 
+  const location = useLocation();
+  const { setTranslations, translations } = useStateContext();
+  
     return (
         <section className='footer'>
-            <div className="footerLinks flex">
+            <div className="footerLinks flex" data-aos='fade-up' data-aos-duration='4000'>
                 {/*Group One - Our Services*/}
                 <div className="linkGroup" data-aos='fade-up' data-aos-duration='4000'>
-                    <span className="groupTitle">
-                        Our Services
+                    <span className="groupTitle"> 
+                    {translations.footer1}
                     </span>
 
           <li className='footerList flex'>
-            <FiChevronRight className='icon' />
-            Pest Detecion
+            <FiChevronRight className={location.pathname === '/detection' ? 'selected' : ''}/>
+            <Link to='/detection'>{translations.footer2}</Link> 
           </li>
 
           <li className='footerList flex'>
-            <FiChevronRight className='icon' />
-            Solutions
+            <FiChevronRight className={location.pathname === '/detection' ? 'selected' : ''}/>
+            <Link to='/detection'>{translations.footer3}</Link> 
           </li>
 
           <li className='footerList flex'>
-            <FiChevronRight className='icon' />
-            Community
+            {/* <FiChevronRight className='icon' /> */}
+            <FiChevronRight className={location.pathname === '/detection' ? 'selected' : ''}/>
+            <Link to='/detection'>{translations.footer4}</Link> 
+            
           </li>
 
           

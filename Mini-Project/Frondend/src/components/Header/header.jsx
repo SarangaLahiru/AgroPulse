@@ -238,8 +238,8 @@ export default function Header() {
             <li className={location.pathname === '/support' ? 'selected' : ''}>
             <Link to='/support'> <Button variant="text" onClick={() => handleNavItemClick('support')}>{translations.support}</Button></Link>
             </li>
-            <li className={selectedNavItem === 'about' ? 'selected' : ''}>
-              <Button variant="text" onClick={() => handleNavItemClick('about')}>{translations.about}</Button>
+            <li className={selectedNavItem === '/aboutus' ? 'selected' : ''}>
+              <Link to='/aboutus'><Button variant="text" >{translations.about}</Button></Link>
             </li>
             <li>
               <Button variant="contained" className="lang" onClick={handleLanguageButtonClick}>
@@ -268,7 +268,7 @@ export default function Header() {
                       >
                         <option value="" disabled>Select a language</option>
                         <option value="English" sx={{ color: '#014802', bgcolor: 'red' }}>English</option>
-                        <option value="">Tamil</option>
+                        <option value="Tamil">Tamil</option>
                         <option value="සිංහල">සිංහල</option>
                       </Select>
                     </FormControl>
