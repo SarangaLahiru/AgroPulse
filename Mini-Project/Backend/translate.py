@@ -50,6 +50,41 @@ translations = {
         'Support_acc5':'We value your feedback and welcome suggestions for improving AgroPulse. You can share your feedback by filling out the feedback form on the Support page or by contacting our support team directly. We appreciate your input and use it to make AgroPulse better for all users',
         'Support_btn':'More',
 
+        #aboutus - translation
+        'itemsData_Title1':'Our Mission',
+        'itemsData_Title2':'Our Vision',
+        'itemsData_Title3':'Our Goal',
+
+        'itemsData_Details1':"At AgroPulse, our mission is to empower farmers with innovative pest management solutions. We aim to enhance agricultural productivity and sustainability by providing advanced technology to detect and prevent pest infestations effectively.",
+
+        'itemsData_Details2':"At AgroPulse, our vision is to transform agriculture through innovative pest management solutions, ensuring a sustainable and prosperous future for farmers worldwide.",
+
+        'itemsData_Details3':"At AgroPulse, our goal is to develop a user-friendly web application that leverages machine learning to accurately detect pests and provide effective solutions. We aim to support farmers in protecting their crops, reducing losses, and improving yields.",
+
+        'technology_Label1':'Machine Learning : ',
+        'technology_Label2':'Web Development : ',
+        'technology_Label3':'Database Management : ',
+        'technology_Label4':'Artificial Intelligence : ',
+
+        'technology_Text1':'Advanced Convolutional Neural Networks (CNNs) trained with TensorFlow and Keras for accurate pest detection.',
+        'technology_Text2':'A robust web application developed using Flask, HTML/CSS, and JavaScript, ensuring a user-friendly experience.',
+        'technology_Text3':'Efficient data storage and retrieval using MongoDB for user data and pest information.',
+        'technology_Text4':'Make more suitable solutions for preventing harmful pests in the most suitable ways using Gemini AI.',
+
+        'features_Label1':'Pest Detection : ',
+        'features_Label2':'Solutions for Prevention : ',
+
+        'features_Text1':'Users can upload images of insects found on their crops, and our system will accurately identify the pest using advanced machine learning algorithms.',
+        'features_Text2':'Based on the identified pest, AgroPulse provides tailored solutions to prevent and mitigate pest damage. This includes recommendations for pesticides, natural remedies, and best practices in pest management.',
+
+        'impactLabel1':'Reduce crop losses due to pest infestations.',
+        'impactLabel2':'Increase crop yields through effective pest management.',
+        'impactLabel3':'Adopt sustainable farming practices by providing environmentally friendly solutions.',
+
+        'futureGoals_Label1':'Enhancing our pest detection accuracy by expanding our dataset.',
+        'futureGoals_Label2':'Adding new features such as pest monitoring and real-time alerts.',
+        'futureGoals_Label3':'Collaborating with agricultural organizations to extend our reach and impact.',
+
         'footer1' : 'Our Services',
         'footer2' : 'Pest Detecion',
         'footer3' : 'Solutions',

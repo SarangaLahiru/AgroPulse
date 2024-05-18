@@ -227,7 +227,7 @@ export default function Header() {
       <FadeIn>
 
         <header className=''>
-          <h2 className=''> <img src="/images/logo.jpeg" alt="logo" width="219px" height="103px" /> </h2>
+          <h2 className=''> <img src="/images/logo.jpeg" alt="logo" width="219px" height="103px" className=''/> </h2>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  box">
             <li className={location.pathname === '/' ? 'selected' : ''}>
               <Link to='/'><Button variant="text" color="success" >{translations.home}</Button></Link>
