@@ -13,11 +13,24 @@
 }
 
 .footer {
-  margin-top: 5%;
-  padding-top:7%;
+  margin-top: 0.5rem;
+}
+.footer .bottom-logo {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  /* Center the image horizontally */
+  margin-bottom: 1rem;
+  /* Adjust margin as needed */
+}
+.footer .bottom-logo img {
+  max-width: 400px;
+  /* Ensure the image doesn't exceed its container's width */
+  height: auto;
+  /* Maintain aspect ratio */
 }
 .footer .footerLinks {
-  height: 30vh;
+  height: auto;
   width: 100%;
   background-color: var(--PrimaryColor);
   box-shadow: 0 2px 4px rgba(2, 15, 29, 0.4);
@@ -29,15 +42,14 @@
   /* Updated padding */
 }
 .footer .bottomSection {
-  height: 2rem;
+  height: 3rem;
   width: 100%;
   background: var(--gradientColor2);
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.9);
   z-index: -100;
 }
 .footer .bottomSection h3 {
-  color: var(--PrimaryColor);
-  align-items: center;
+  color: var(--whiteColor);
   text-align: center;
   /* Updated text alignment */
   line-height: 3rem;
@@ -51,7 +63,10 @@
   font-weight: 800;
   font-size: 1.25rem;
   color: var(--whiteColor);
-  margin-bottom: 1rem; /* Add margin-bottom for spacing */
+  margin-bottom: 1rem;
+}
+.footer .linkGroup:nth-child(2) {
+  bottom: 0px;
 }
 .footer .linkGroup:nth-child(2) .footerList:hover {
   transition: none;

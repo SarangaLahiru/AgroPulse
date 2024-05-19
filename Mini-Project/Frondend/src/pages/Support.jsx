@@ -54,8 +54,7 @@ function Support() {
      " >
         <h2 className="xl:text-2xl font-bold xl:pt-10  xl:my-2 xl:mb-14 xl:text-left
         md:text-2xl md:pt-8  md:my-1 md:mb-10 md:text-center
-        mt-8 text-center mb-4" 
-        
+        mt-8 text-center mb-4"
         >{translations.Support_3t2}</h2>
             <FaqAccordion
              topic={translations.Support_act1}

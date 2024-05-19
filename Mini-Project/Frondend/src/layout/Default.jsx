@@ -16,7 +16,7 @@ export default function Default() {
   return (
     <div>
 
-      <h2>default</h2>
+      {/* <h2>default</h2> */}
       <Header />
       <Outlet />
       <Footer />
