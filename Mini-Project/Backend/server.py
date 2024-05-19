@@ -162,6 +162,7 @@ def perform_text_detection():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
 
 @app.route('/api/signupWithImage', methods=['POST'])
 def signupImage():
@@ -225,6 +226,9 @@ def send_sms_message(phone, message):
         print(f"Failed to send SMS: {e}")
         return False
 
+########################
+# Pest Image Detection #
+########################
 
 @app.route('/api/detection', methods=['POST'])
 def detection():
@@ -256,12 +260,16 @@ def detection_details():
     return jsonify({'solution_details': dis})
     
 
+#######################
+# Language Translator #
+#######################
 
 @app.route('/change-language', methods=['POST'])
 def change_language():
     language = request.json.get('language', 'en')
     session['language'] = language
     return {'success': True}
+
 
 @app.route('/get-translations', methods=['POST', 'GET'])
 def get_translations():
@@ -273,7 +281,10 @@ def get_translations():
     return jsonify(translations.get(language, translations['en']))
 
 
-# Get the Contact Form Details
+################################
+    # Get the Contact Form #
+################################
+
 @app.route('/contact', methods=['POST'])
 def contact():
     data = request.get_json()
