@@ -7,7 +7,7 @@ from PIL import Image
 import re
 import bcrypt
 from vonage import Client, Sms
-#from detection import predict,details,get_solutions,getDetails
+from detection import predict,details,get_solutions,getDetails
 from translate import translations
 from datetime import datetime
 
