@@ -12,7 +12,7 @@ export default function Guest() {
   return (
     <div>
 
-        <h2>guest</h2>
+        {/* <h2>guest</h2> */}
 
         <Outlet />
       

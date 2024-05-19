@@ -227,7 +227,7 @@ export default function Header() {
       <FadeIn>
 
         <header className=''>
-          <h2 className=''> <img src="/images/logo.jpeg" alt="logo" width="219px" height="103px" /> </h2>
+          <h2 className=''> <img src="/images/logo.jpeg" alt="logo" width="219px" height="103px" className=''/> </h2>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  box">
             <li className={location.pathname === '/' ? 'selected' : ''}>
               <Link to='/'><Button variant="text" color="success" >{translations.home}</Button></Link>
@@ -238,8 +238,8 @@ export default function Header() {
             <li className={location.pathname === '/support' ? 'selected' : ''}>
             <Link to='/support'> <Button variant="text" onClick={() => handleNavItemClick('support')}>{translations.support}</Button></Link>
             </li>
-            <li className={selectedNavItem === 'about' ? 'selected' : ''}>
-              <Button variant="text" onClick={() => handleNavItemClick('about')}>{translations.about}</Button>
+            <li className={selectedNavItem === '/aboutus' ? 'selected' : ''}>
+              <Link to='/aboutus'><Button variant="text" >{translations.about}</Button></Link>
             </li>
             <li>
               <Button variant="contained" className="lang" onClick={handleLanguageButtonClick}>
@@ -268,7 +268,7 @@ export default function Header() {
                       >
                         <option value="" disabled>Select a language</option>
                         <option value="English" sx={{ color: '#014802', bgcolor: 'red' }}>English</option>
-                        <option value="">Tamil</option>
+                        <option value="Tamil">Tamil</option>
                         <option value="සිංහල">සිංහල</option>
                       </Select>
                     </FormControl>

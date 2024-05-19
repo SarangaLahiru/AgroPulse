@@ -12,7 +12,7 @@ function ParallaxContent() {
   return (
     <div className="app">
       <Parallax strength={600} bgImage={imageOne} className="images">
-        <div className="hero container" data-aos="fade-right">
+        <div className="hero container text-shadow-lg" data-aos="fade-right">
           <div className="hero-text" >
             <h2>{translations.Home_p3}</h2>
             <p>
@@ -23,7 +23,7 @@ function ParallaxContent() {
       </Parallax>
       <div className="right-text">
         <Parallax strength={300} bgImage={imageSecond} className="images">
-          <div className="hero container" data-aos="fade-left">
+          <div className="hero container text-shadow-lg" data-aos="fade-left">
             <div className="hero-text move">
               <h2>{translations.Home_p5} </h2>
               <p>
@@ -35,7 +35,7 @@ function ParallaxContent() {
         </Parallax>
 
         <Parallax strength={600} bgImage={imageThrid} className="images">
-          <div className="hero container" data-aos="fade-right">
+          <div className="hero container text-shadow-lg" data-aos="fade-right">
             <div className="hero-text moves">
               <h2>{translations.Home_p7} </h2>
               <p>{translations.Home_p8}</p>
