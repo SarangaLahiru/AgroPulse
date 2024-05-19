@@ -47,7 +47,7 @@ const ContactForm = () => {
           <h2 className="hire__text">{translations.support_p}</h2>
           <h1 className="hire__text">{translations.contact}</h1>
           <p className="hire__text">
-          {translations.contact_Form_p}
+          {translations.contact_form_p}
           </p>
         </div>
 
