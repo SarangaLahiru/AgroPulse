@@ -1,59 +1,289 @@
-.app{
+.app {
   margin-top: 4%;
 }
+
 .hero {
-    width: 100%;
-    min-height: 45vh;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
-    align-items: flex-end;
-    justify-content: left;
-    line-height: 1;
-    margin-top: 25%;
-  }
-  
+  width: auto;
+  min-height: 30vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  justify-content: left;
+  line-height: 1;
+  margin-top: 25%;
+  background-repeat: no-repeat;
+}
+
+.hero-text {
+text-align: left;  
+  max-width: 900px;
+  padding-bottom: 5%;
+  padding-left: 7%;
+}
+
+.hero h2 {
+  font-size: 55px;
+  font-weight: 600;
+}
+.hero p {
+  color: white;
+  font-size: 20px;
+}
+
+.right-text .hero-text {
+  text-align: right;
+  max-width: 900px;
+  padding-bottom: 5%;
+  align-items: flex-end;
+  justify-content: right;
+  line-height: 1.1;
+}
+
+.right-text p {
+  text-align: right;
+}
+
+.app .images {
+  width: 100%;
+  height: auto;
+}
+
+.move {
+  margin-left: 34%;
+}
+
+.moves {
+  margin-left: 43%;
+}
+
+/* Resposive Screen */
+
+/* Moblie Small (phones, 374px and down) */
+@media only screen and (max-width: 375px) {
+
   .hero-text {
-    text-align: left;
-    max-width: 900px;
-    padding-bottom: 5%;
-    padding-left: 7%;
+    text-align: center;
+    max-width: 600px;
+    padding-bottom: 35%;
+    padding-left: 0%;
   }
-  
+
   .hero h2 {
-    font-size: 55px;
-    font-weight: 600;
+    font-size: 27px;
+    font-weight: 600px;
+    padding-bottom: 1%;
   }
   .hero p {
     color: white;
-    font-size: 20px;
+    font-size: 11px;
+    padding-top: 1%;
   }
-  
+
+  .right-text .hero-text {
+    text-align: center;
+    max-width: 600px;
+    padding-bottom: 35%;
+    line-height: 1;
+  }
+
+  .right-text p {
+    text-align: center;
+    padding-top: 1%;
+  }
+
+  .move {
+    margin-left: 1%;
+  }
+
+  .moves {
+    margin-left: 6%;
+  }
+
+}
+
+/* Moblie Medium (phones, 375px and down) */
+@media only screen and (min-width: 376px) {
+  .hero-text {
+    padding-left: 0%;
+    text-align: center;
+    max-width: 600px;
+    padding-bottom: 35%;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+
+    padding-bottom: 1%;
+  }
+  .hero p {
+    font-size: 11px;
+    padding-top: 1%;
+  }
+
+  .right-text .hero-text {
+    text-align: center;
+
+    padding-bottom: 35%;
+    line-height: 1;
+  }
+
+  .right-text p {
+    text-align: center;
+    padding-top: 1%;
+  }
+
+  .move {
+    margin-left: 1%;
+  }
+
+  .moves {
+    margin-left: 6%;
+  }
+}
+
+/* Moblie Large (phones, 425px and down) */
+@media only screen and (min-width: 425px) {
+  .hero-text {
+    padding-left: 0%;
+    text-align: center;
+
+    padding-bottom: 35%;
+  }
+
+  .hero h2 {
+    font-size: 30px;
+
+    padding-bottom: 1%;
+  }
+  .hero p {
+    font-size: 12px;
+    padding-top: 1%;
+  }
+
+  .right-text .hero-text {
+    text-align: center;
+    max-width: 600px;
+    padding-bottom: 35%;
+
+    line-height: 1;
+  }
+
+  .right-text p {
+    text-align: center;
+    padding-top: 1%;
+  }
+
+  .move {
+    margin-left: 1%;
+  }
+
+  .moves {
+    margin-left: 9%;
+  }
+}
+
+/* Tablet ( 768px and down) */
+@media only screen and (min-width: 768px) {
+  .hero-text {
+    text-align: left;
+    max-width: 900px;
+    padding-bottom: 7%;
+    padding-left: 3%;
+  }
+
+  .hero h2 {
+    font-size: 48px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+
   .right-text .hero-text {
     text-align: right;
     max-width: 900px;
-    padding-bottom: 5%;
-    align-items: flex-end;
-    justify-content: right;
-    line-height: 1.1;
+    padding-bottom: 7%;
+    line-height: 1;
   }
-  
-  .right-text  p {
+
+  .right-text p {
     text-align: right;
-    
   }
 
-  .images{
-    width: 100%;
-    height: auto;
+  .move {
+    margin-left: 10%;
+    margin-right: 3%;
   }
 
-  .move{
+  .moves {
+    margin-left: 23%;
+  }
+}
+
+/* Laptop (1024px and down) */
+@media only screen and (min-width: 1024px) {
+  .hero-text {
+    max-width: 900px;
+    padding-left: 7%;
+  }
+
+  .hero h2 {
+    font-size: 65px;
+  }
+  .hero p {
+    font-size: 20px;
+  }
+
+  .right-text .hero-text {
+    text-align: right;
+    max-width: 900px;
+    line-height: 1;
+  }
+
+  .right-text p {
+    text-align: right;
+  }
+
+  .move {
     margin-left: 34%;
   }
 
-  .moves{
-    margin-left: 43%;
+  .moves {
+    margin-left: 33%;
+  }
+}
+
+/* Laptop Large (1440px and down) */
+@media only screen and (min-width: 1440px) {
+  .hero {
+    width: auto;
+    min-height: 30vh;
+  }
+  .hero-text {
+    padding-left: 2%;
+    max-width: 900px;
+  }
+
+  .hero h2 {
+    font-size: 80px;
+  }
+  .hero p {
+    font-size: 23px;
+  }
+
+  .right-text .hero-text {
+    line-height: 1.1;
+   
+  }
+
+  .move {
+    margin-left: 30%;
+    padding-left: 1%;
+  }
+
+  .moves {
+    margin-left: 66%;
     
   }
+}

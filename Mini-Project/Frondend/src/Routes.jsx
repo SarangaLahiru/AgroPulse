@@ -7,6 +7,8 @@ import App from "./App";
 import ImageUpload from "./pages/ImageUpload";
 import PestImageUpload from "./pages/PestImageUpload";
 import Home from "./pages/home";
+import Support from "./pages/Support";
+import AboutUs from "./pages/About-Us/AboutUs";
 
 const router=createBrowserRouter([
     {
@@ -29,6 +31,15 @@ const router=createBrowserRouter([
                 path:'/detection',
                 element:<PestImageUpload/>
             },
+            {
+                path:'/support',
+                element:<Support/>
+            },
+            {
+                path:'/aboutus',
+                element:<AboutUs/>
+            },
+
 
         ]
     },

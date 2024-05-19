@@ -1,35 +1,29 @@
-import * as React from 'react';
+import { Avatar, IconButton, Menu, MenuItem, Slide, Stack } from '@mui/material';
 import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
-import List from '@mui/material/List';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { IoIosArrowDown } from "react-icons/io";
+import axios from 'axios';
+import * as React from 'react';
+import FadeIn from 'react-fade-in';
+import { IoCall, IoDocumentText, IoDownload, IoHelpCircleOutline, IoHome, IoInformationCircleOutline, IoLanguage, IoSettings } from "react-icons/io5";
 import { RiMenu2Fill } from "react-icons/ri";
 import { TiArrowSortedDown } from "react-icons/ti";
-import './header.css';
-import FadeIn from 'react-fade-in';
-import { deepOrange, deepPurple } from '@mui/material/colors';
-import { Slide, IconButton, Menu, MenuItem, Stack, Avatar } from '@mui/material';
-import { AccountCircle } from '@mui/icons-material';
-import { IoHome, IoDownload, IoHelpCircleOutline, IoInformationCircleOutline, IoLanguage, IoSettings, IoDocumentText, IoCall } from "react-icons/io5";
-import { useStateContext } from '../../context/contextProvider';
 import { Link, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import axios from 'axios';
+import { useStateContext } from '../../context/contextProvider';
+import './header.css';
 
 
 export default function Header() {
@@ -233,7 +227,7 @@ export default function Header() {
       <FadeIn>
 
         <header className=''>
-          <h2 className=''> <img src="/images/logo.jpeg" alt="logo" width="219px" height="103px" /> </h2>
+          <h2 className=''> <img src="/images/logo.jpeg" alt="logo" width="219px" height="103px" className=''/> </h2>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  box">
             <li className={location.pathname === '/' ? 'selected' : ''}>
               <Link to='/'><Button variant="text" color="success" >{translations.home}</Button></Link>
@@ -241,11 +235,11 @@ export default function Header() {
             <li className={location.pathname === '/detection' ? 'selected' : ''}>
               <Link to='/detection'><Button variant="text">{translations.detection}</Button></Link>
             </li>
-            <li className={selectedNavItem === 'support' ? 'selected' : ''}>
-              <Button variant="text" onClick={() => handleNavItemClick('support')}>{translations.support}</Button>
+            <li className={location.pathname === '/support' ? 'selected' : ''}>
+            <Link to='/support'> <Button variant="text" onClick={() => handleNavItemClick('support')}>{translations.support}</Button></Link>
             </li>
-            <li className={selectedNavItem === 'about' ? 'selected' : ''}>
-              <Button variant="text" onClick={() => handleNavItemClick('about')}>{translations.about}</Button>
+            <li className={selectedNavItem === '/aboutus' ? 'selected' : ''}>
+              <Link to='/aboutus'><Button variant="text" >{translations.about}</Button></Link>
             </li>
             <li>
               <Button variant="contained" className="lang" onClick={handleLanguageButtonClick}>
@@ -264,6 +258,7 @@ export default function Header() {
                     <FormControl sx={{ m: 1, minWidth: 120 }} color='success'>
                       <InputLabel sx={{ color: '#014802' }} color='success'>Language</InputLabel>
                       <Select
+
                         native
                         value={selectedLanguage}
                         onChange={handleLanguageChange}
@@ -273,7 +268,7 @@ export default function Header() {
                       >
                         <option value="" disabled>Select a language</option>
                         <option value="English" sx={{ color: '#014802', bgcolor: 'red' }}>English</option>
-                        <option value="">Tamil</option>
+                        <option value="Tamil">Tamil</option>
                         <option value="සිංහල">සිංහල</option>
                       </Select>
                     </FormControl>
@@ -294,7 +289,7 @@ export default function Header() {
                 {/* <AccountCircle sx={{ color: '#014802', fontSize:'50px'}}/> */}
                 <Stack direction="row" spacing={1}>
                   <Avatar
-                    sx={{ width: 56, height: 56, backgroundColor: "green" }}
+                    sx={{ width: 60, height: 60, backgroundColor: "green" }}
 
 
 

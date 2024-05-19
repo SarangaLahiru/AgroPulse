@@ -1,0 +1,17 @@
+:root {
+  --PrimaryColor: #014802;
+  --SecondaryColor: rgb(1, 122, 4);
+  --LightColor: rgb(135, 250, 137);
+  --gradientColor: linear-gradient(to bottom, hsl(121, 97%, 14%), hsl(121, 98%, 35%));
+  --gradientColor2: linear-gradient(to right, hsl(121, 97%, 14%), hsl(121, 98%, 35%), hsl(121, 97%, 14%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 13%);
+  --textColor: hsl(0, 0%, 0%);
+  --inputColor: rgb(43, 40, 40);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(255, 255, 235);
+}
+
+.content h1 {
+  text-shadow: 0 2px 40px rgba(186, 27, 27, 0.8);
+}/*# sourceMappingURL=aboutus.css.map */

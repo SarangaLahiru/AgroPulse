@@ -1,9 +1,8 @@
 .contact {
   background-color: white;
-  margin-top: 5%;
+  margin-top: 10%;
   line-height: 1;
 }
-
 h1.hire__text {
   font-size: 64px;
   font-weight: 700;
@@ -26,8 +25,12 @@ p.hire__text {
 }
 
 .input__box {
-  padding-top: 1.5%;
-  padding-left: 20%;
+  padding-top: 6%;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: block;
+  align-items: center;
+  justify-content: center;
 }
 
 input.contact {
@@ -74,136 +77,314 @@ button.send__pointer {
   font-size: 20px;
   font-weight: 500;
 }
-
-.contact input {
-  border-radius: 24px;
-
-  border-color: #286a1a;
-}
-
-.contact textarea {
-  border-radius: 24px;
-  border-color: #286a1a;
-}
-
 /* Resposive Screen */
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 375px) {
+  .contact {
+    margin-top: 10%;
+    line-height: 1;
+  }
+
   h1.hire__text {
-    font-size: 50px;
+    font-size: 32px;
   }
 
   h2.hire__text {
-    font-size: 25px;
-    font-weight: 700;
-  }
-
-  p.hire__text {
-    font-size: 15px;
-  }
-
-  .contact_sub_text {
-    font-size: 18px;
-  }
-
-  button.send__pointer {
-    font-size: 18px;
-  }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  h1.hire__text {
-    font-size: 50px;
-  }
-
-  h2.hire__text {
-    font-size: 25px;
-    font-weight: 700;
-  }
-
-  p.hire__text {
-    font-size: 15px;
-  }
-
-  .contact_sub_text {
-    font-size: 18px;
-  }
-
-  button.send__pointer {
-    font-size: 18px;
-  }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  h1.hire__text {
-    font-size: 56px;
-  }
-
-  h2.hire__text {
-    font-size: 28px;
-    font-weight: 700;
-  }
-
-  p.hire__text {
     font-size: 16px;
   }
 
-  .contact_sub_text {
-    font-size: 19px;
+  p.hire__text {
+    font-size: 8px;
+    padding-top: 1%;
+  }
+
+  .input__box {
+    padding-top: 7%;
+    padding-left: 05%;
+  }
+
+  input.contact {
+    display: block;
+    width: 100%;
+    padding: 0 15px;
+    border: 2px solid black;
+    border-radius: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    height: 30px;
+    line-height: 36px;
+    margin: 10px 0px;
+    outline: none;
+    color: black;
+    font-size: 8px;
+    letter-spacing: 0.1px;
+    background: none;
+  }
+
+  .input__box .contact_sub_text {
+    font-size: 10px;
+  }
+
+  textarea#message {
+    height: 100px;
+    background: none;
+    padding: 0 15px;
+    width: 100%;
+    line-height: 36px;
+    color: black;
+    font-size: 8px;
+    letter-spacing: 0.1px;
+    border: 2px solid black;
+    margin: 10px 0px;
   }
 
   button.send__pointer {
-    font-size: 19px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-left: 0%;
+    margin-top: 1%;
+    font-size: 10px;
+    font-weight: 500;
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 376px) {
+  .contact {
+    margin-top: 10%;
+    line-height: 1;
+  }
+
   h1.hire__text {
-    font-size: 60px;
+    font-size: 32px;
   }
 
   h2.hire__text {
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 16px;
+  }
+
+  p.hire__text {
+    font-size: 8px;
+    padding-top: 1%;
+  }
+
+  .input__box {
+    padding-top: 5%;
+    padding-left: 5%;
+  }
+
+  input.contact {
+    display: block;
+    width: 100%;
+    padding: 0 15px;
+    border: 2px solid black;
+    border-radius: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    height: 30px;
+    line-height: 36px;
+    margin: 10px 0px;
+    outline: none;
+    color: black;
+    font-size: 8px;
+    letter-spacing: 0.1px;
+    background: none;
+  }
+
+  .input__box .contact_sub_text {
+    font-size: 10px;
+  }
+
+  textarea#message {
+    height: 100px;
+    background: none;
+    padding: 0 15px;
+    width: 100%;
+    line-height: 36px;
+    color: black;
+    font-size: 8px;
+    letter-spacing: 0.1px;
+    border: 2px solid black;
+    margin: 10px 0px;
+  }
+
+  button.send__pointer {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-left: 0%;
+    margin-top: 1%;
+    font-size: 10px;
+    font-weight: 500;
+  }
+}
+
+/* Tablet ( 768px and down) */
+@media only screen and (min-width: 768px) {
+  .contact {
+    margin-top: 6%;
+    line-height: 1;
+  }
+
+  h1.hire__text {
+    font-size: 38px;
+  }
+
+  h2.hire__text {
+    font-size: 19px;
+  }
+
+  p.hire__text {
+    font-size: 12px;
+    padding-top: 1%;
+  }
+
+  .input__box {
+    padding-top: 5%;
+    margin-left: 10%;
+    padding-right: 05%;
+  }
+
+  input.contact {
+    width: 85%;
+    padding: 0 15px;
+    height: 36px;
+    line-height: 36px;
+    margin: 12px 0px;
+
+    font-size: 11px;
+  }
+
+  .input__box .contact_sub_text {
+    font-size: 14px;
+  }
+
+  textarea#message {
+    height: 150px;
+
+    padding: 0 15px;
+    width: 85%;
+    line-height: 36px;
+
+    font-size: 11px;
+  }
+
+  button.send__pointer {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-left: 0%;
+    margin-top: 1%;
+    font-size: 14px;
+  }
+}
+
+/* Laptop (1024px and down) */
+@media only screen and (min-width: 1024px) {
+  h1.hire__text {
+    font-size: 52px;
+  }
+
+  h2.hire__text {
+    font-size: 26px;
   }
 
   p.hire__text {
     font-size: 18px;
   }
 
-  .contact_sub_text {
-    font-size: 20px;
+  .input__box {
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  input.contact {
+    display: block;
+    width: 85%;
+
+    height: 40px;
+    line-height: 36px;
+    margin: 15px 0px;
+
+    font-size: 14px;
+    letter-spacing: 0.1px;
+  }
+
+  .input__box .contact_sub_text {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  textarea#message {
+    height: 180px;
+
+    width: 85%;
+
+    font-size: 14px;
+
+    margin: 15px 0px;
   }
 
   button.send__pointer {
-    font-size: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+
+    font-size: 18px;
   }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+/* Laptop Large (1440px and down) */
+@media only screen and (min-width: 1440px) {
   h1.hire__text {
     font-size: 64px;
   }
 
   h2.hire__text {
     font-size: 32px;
-    font-weight: 700;
   }
 
   p.hire__text {
     font-size: 20px;
   }
 
-  .contact_sub_text {
+  .input__box {
+    padding-top: 6%;
+    padding-left: 10%;
+    padding-right: 0%;
+  }
+
+  input.contact {
+    width: 90%;
+    padding: 0 20px;
+
+    height: 55px;
+    line-height: 46px;
+    margin: 20px 0px;
     font-size: 20px;
   }
 
-  button.send__pointer {
+  .input__box .contact_sub_text {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  textarea#message {
+    height: 280px;
+
+    padding: 0 20px;
+    width: 90%;
+    line-height: 56px;
+
     font-size: 20px;
+
+    margin: 15px 0px;
+  }
+
+  button.send__pointer {
+    padding: 16px 24px;
+    border-radius: 10px;
+    margin-left: 0%;
+    margin-top: 1%;
+    font-size: 24px;
   }
 }

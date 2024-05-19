@@ -1,125 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-header{
-    display: flex;
-    width: 100%;
-    height: 100px;
-    align-items: center;
-    justify-content: center;
-    /* background-color: brown; */
-    position: relative;
-    /* font-family: "Poppins", sans-serif; */
+header {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  /* background-color: brown; */
+  position: relative;
+  /* font-family: "Poppins", sans-serif; */
+  box-shadow: 0 2px 10px rgba(1,72, 2, 1);
 }
-header h2 img{
-    position: absolute;
-    top: -10px;
-    left: 50px;
+header h2 img {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  margin: 10px 0;
 }
-header .box{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    top: 08px;
-    
-    
+header .box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  top: 08px;
 }
-header h2{
-    flex-basis: 20%;
+header h2 {
+  flex-basis: 30%;
 }
-header  li{
-    list-style: none;
-    margin: 0px 30px;
-    border-bottom: 3px #ffffff solid;
-    transition: all 0.5s ease;
-    border-bottom-width: 3px;
+header li {
+  list-style: none;
+  margin: 0px 30px;
+  border-bottom: 3px #ffffff solid;
+  transition: all 0.5s ease;
+  border-bottom-width: 3px;
 }
 
+header .box li Button {
+  color: rgb(85, 85, 85);
+  border-radius: 10px;
+  padding: 9px 26px;
+  display: flex;
+  transition: all 0.5s ease-in;
+  font-size: 21px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #014802;
+}
+header .box li Button:hover {
+  background-color: #0148021b;
+  transition: all 0.1s ease-in;
+}
+header .box li .lang {
+  background-color: #014802;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  transition: all 0.5s ease-in;
+  font-size: 21px;
+  width: 200px;
+}
+header .box li .lang:hover {
+  background-color: #014802;
+}
+header .box li .langIcon {
+  margin: 0px 5px;
+  position: relative;
+  left: 15px;
+}
+header .box .userIcon {
+  background-color: none;
+}
+header .menuicon {
+  visibility: hidden;
+  position: absolute;
+  right: 20px;
+  font-size: 35px;
+  top: 50px;
+  color: #014802;
+}
+.selected {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom: 3px #014802 solid;
+}
 
-header .box li Button{
-    
-    color: rgb(85, 85, 85);
-    border-radius: 10px;
-    padding: 9px 26px;
-    display: flex;
-    transition: all 0.5s ease-in;
-    font-size: 21px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    color: #014802;
-    
-}
-header .box li Button:hover{
-    background-color: #0148021b;
-    transition: all 0.1s ease-in;
-}
-header .box li .lang{
-    background-color: #014802;
-    color: white;
-    border-radius: 10px;
-    display: flex;
-    transition: all 0.5s ease-in;
-    font-size: 21px;
-    width: 200px;
-    
-}
-header .box li .lang:hover{
-    background-color: #014802;
-}
-header .box li .langIcon{
-    
-    margin: 0px 5px;
-    position: relative;
-    left: 15px;
-    
+/* Responsive */
 
+@media only screen and (max-width: 374px) {
+  header .box {
+    display: none;
+  }
+
+  header h2 img {
+    width: auto;
+    height: 70px;
+    top: 5px;
+    left: 30px;
+  }
+  header .menuicon {
+    padding-right: 10%;
+    visibility: visible;
+    padding-right: 5%;
+    top: 35px;
+  }
 }
-header .box  .userIcon {
-    background-color: none;
-    
+
+@media only screen and (min-width: 375px) {
+  header .box {
+    display: none;
+  }
+
+  header h2 img {
+    width: auto;
+    height: 70px;
+    top: 5px;
+    left: 30px;
+  }
+  header .menuicon {
+    padding-right: 10%;
+    visibility: visible;
+    padding-right: 5%;
+    top: 35px;
+  }
 }
-header .menuicon{
-    visibility: hidden;
-    position: absolute;
-    right: 20px;
-    font-size: 35px;
-    top: 50px;
-    color: #014802;
+
+@media only screen and (min-width: 425px) {
+  header .box {
+    display: none;
+  }
+
+  header h2 img {
+    width: auto;
+    height: 70px;
+    top: 5px;
+    left: 30px;
+  }
+  header .menuicon {
+    padding-right: 10%;
+    visibility: visible;
+    padding-right: 05%;
+    top: 35px;
+  }
 }
-.selected{
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-bottom: 3px #014802 solid;
-    
+
+@media only screen and (min-width: 768px) {
+  header .box {
+    display: none;
+  }
+
+  header h2 img {
+    width: auto;
+    height: 70px;
+    top: 5px;
+    left: 40px;
+  }
+  header .menuicon {
+    padding-right: 10%;
+    visibility: visible;
+    padding-right: 5%;
+    top: 35px;
+  }
 }
-@media (max-width: 640px) {
+/*
+@media only screen and (max-width: 1023px) {
     header .box {
         display: none;
+        
     }
-}
-@media (max-width: 1000px) {
-    header .box {
-        display: none;
+
+ header h2 img{
+        width: auto;
+        height: 80px;
+        top: 0px;
+        left: 0px;
+        padding-left: 5%;
     }
     header .menuicon{
         visibility: visible;
+        padding-right: 5%;
+        top: 35px;
     }
-}
-@media (max-width: 1068px) {
-    header .box  {
-        margin-left: 200px;
-    }
-}
-@media (max-width: 1200px) {
-    header .box  {
-        transform: scale(0.8);
-    }
-}
-@media (max-width: 1400px) {
-    header .box li {
-        margin: 0px 5px;
-    }
+} */
+
+@media only screen and (min-width: 1024px) {
+  header .box {
+    display: flex;
+    transform: scale(0.7);
+    padding-left: 40%;
+  }
+
+  header h2 img {
+    width: auto;
+    height: 75px;
+    top: 0px;
+    left: 0px;
+    padding-left: 05%;
+  }
+  header .menuicon {
+    visibility: hidden;
+  }
 }
 
+@media only screen and (min-width: 1440px) {
+  header .box {
+    display: flex;
+    transform: scale(0.8);
+    padding-left: 12%;
+  }
+
+  header h2 img {
+    width: auto;
+    height: 85px;
+    top: -5px;
+    left: 0px;
+    padding-left: 5%;
+  }
+}
+
+@media (max-width: 1400px) {
+  header .box li {
+    margin: 0px 5px;
+  }
+}

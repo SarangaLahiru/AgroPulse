@@ -7,7 +7,7 @@ from PIL import Image
 import re
 import bcrypt
 from vonage import Client, Sms
-from detection import predict,details,solutions1,solutions2,solutions3,getDetails
+#from detection import predict,details,get_solutions,getDetails
 from translate import translations
 from datetime import datetime
 
@@ -50,7 +50,7 @@ def validate_password(password):
     
     return True  # Password is valid
     
-    return True
+    
 def extract_name_and_mobile(ocr_text):
     # Define the regular expression patterns for extracting name and mobile number
     name_pattern = re.compile(r'Name:\s*(.*)', re.IGNORECASE)
@@ -162,6 +162,7 @@ def perform_text_detection():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
 
 @app.route('/api/signupWithImage', methods=['POST'])
 def signupImage():
@@ -225,7 +226,9 @@ def send_sms_message(phone, message):
         print(f"Failed to send SMS: {e}")
         return False
 
-
+########################
+# Pest Image Detection #
+########################
 
 @app.route('/api/detection', methods=['POST'])
 def detection():
@@ -239,12 +242,12 @@ def detection():
     # Call the predict function and pass the image file
     result = predict(image_file)
     details1= details(result)
-    solution1=solutions1(result)
-    solution2= solutions2(result)
-    solution3= solutions3(result)
-    # Return the predicted class as a JSON response
-    return jsonify({'result': result, 'details':details1,'solution1':solution1,'solution2':solution2,'solution3':solution3})
+     # Get details and solutions for the detected pest
+    solutions = get_solutions(result)
     
+    # Return the result along with details and solutions as a JSON response
+    return jsonify({'result': result,'details':details1, 'solution1': solutions[0], 'solution2': solutions[1], 'solution3': solutions[2]})
+
 @app.route('/api/detection_details', methods=['POST'])
 def detection_details():
     
@@ -257,12 +260,16 @@ def detection_details():
     return jsonify({'solution_details': dis})
     
 
+#######################
+# Language Translator #
+#######################
 
 @app.route('/change-language', methods=['POST'])
 def change_language():
     language = request.json.get('language', 'en')
     session['language'] = language
     return {'success': True}
+
 
 @app.route('/get-translations', methods=['POST', 'GET'])
 def get_translations():
@@ -274,7 +281,10 @@ def get_translations():
     return jsonify(translations.get(language, translations['en']))
 
 
-# Get the Contact Form Details
+################################
+    # Get the Contact Form #
+################################
+
 @app.route('/contact', methods=['POST'])
 def contact():
     data = request.get_json()
