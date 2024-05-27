@@ -281,6 +281,7 @@ def get_translations():
     return jsonify(translations.get(language, translations['en']))
 
 
+
 ################################
     # Get the Contact Form #
 ################################
