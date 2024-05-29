@@ -1,6 +1,6 @@
-
 translations = {
     'en': {
+        'lang':'en',
         'home': 'HOME',
         'about': 'ABOUT',
         'detection': 'DETECTION',
@@ -160,6 +160,7 @@ translations = {
     },
    
     'සිංහල': {
+        'language':'si',
         'home': 'මුල්පිටුව',
         'about': 'හැදින්වීම',
         'detection': 'අනාවරණය',
@@ -220,7 +221,8 @@ translations = {
         'input_email':'ඔබේ විද්‍යුත් තැපෑල ඇතුලත් කරන්න',
         'input_message':'ඔබේ පණිවිඩය ඇතුලත් කරන්න',
         'support_p': 'ඔබගේ සහයට',
-       
+    
 
     }
-}
+    }
+

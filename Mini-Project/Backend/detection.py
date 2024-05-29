@@ -1,30 +1,31 @@
-#from tensorflow.keras.models import load_model
-#from tensorflow.keras.preprocessing import image
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
 import numpy as np
 import os
-#import google.generativeai as genai
+import google.generativeai as genai
 
 # Load the trained machine learning model
-#model = load_model('insect_model1.h5')
+model = load_model('17_pest_model.h5')
 
 # Define class names
-class_names = [
-    'Africanized Honey Bees (Killer Bees)',
-    'Aphids',
-    'Armyworms',
-    'Brown Marmorated Stink Bugs',
-    'Cabbage Loopers',
-    'Citrus Canker',
-    'Colorado Potato Beetles',
-    'Corn Borers',
-    'Corn Earworms',
-    'Fall Armyworms',
-    'Fruit Flies',
-    'Spider Mites',
-    'Thrips',
-    'Tomato Hornworms',
-    'Western Corn Rootworms'
-]
+class_names = ['Black hairy',
+ 'Cutworm',
+ 'Field Cricket',
+ 'Indigo caterpillar',
+ 'Jute Stem Weevil',
+ 'Jute aphid',
+ 'Jute hairy',
+ 'Jute red mite',
+ 'Jute semilooper',
+ 'Jute stem girdler',
+ 'Jute stick insect',
+ 'Leaf beetle',
+ 'Mealybug',
+ 'Pod borer',
+ 'Termite',
+ 'Termite odontotermes (Rambur)',
+ 'Yellow Mite']
+
 
 # Create a dictionary to map numeric index to class names
 index_to_class = {i: class_name for i, class_name in enumerate(class_names)}
@@ -74,10 +75,15 @@ def details(pestName):
         }
 
         safety_settings = [
-            {
-                "category": "HARM_CATEGORY_HARASSMENT",
-                "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-            },
+                {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "BLOCK_LOW_AND_ABOVE"  # Adjust threshold to allow more responses
+    },
+    {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "BLOCK_LOW_AND_ABOVE"  # Adjust threshold to allow more responses
+    },
+
             
         ]
 
@@ -106,68 +112,6 @@ def details(pestName):
 
         return convo.last.text
  
-#         pest = pestName
-        
-#         # Configure the API key for authentication
-#         genai.configure(api_key="AIzaSyA6Bkhpmh6MY2-whmHejhRUsnA286YsExI")
-
-#         # Set up the model
-#         generation_config = {
-#             "temperature": 0.9,
-#             "top_p": 1,
-#             "top_k": 1,
-#             "max_output_tokens": 2048,
-#         }
-
-#         safety_settings = [
-#             {
-#                 "category": "HARM_CATEGORY_HARASSMENT",
-#                 "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-#             },
-#             {
-#                 "category": "HARM_CATEGORY_HATE_SPEECH",
-#                 "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-#             },
-#             {
-#                 "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-#                 "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-#             },
-#             {
-#                 "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-#                 "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-#             },
-#         ]
-
-#         model = genai.GenerativeModel(model_name="gemini-1.0-pro",
-#                                       generation_config=generation_config,
-#                                       safety_settings=safety_settings)
-
-#         # Start a conversation with Gemini using the user prompt
-#         model = genai.GenerativeModel(model_name="gemini-1.0-pro",
-#                                       generation_config=generation_config,
-#                                       safety_settings=safety_settings)
-
-#         # Start a conversation with Gemini using the user prompt
-#         user_prompt = f"I'm experiencing issues with {pest}. can you give me another better natural only one solution farmers can do with 50 words only"
-
-#         convo = model.start_chat(history=[
-#   {
-#     "role": "user",
-#     "parts": ["car"]
-#   },
-#   {
-#     "role": "model",
-#     "parts": ["**Noun**\n\n1. A motor vehicle with four wheels, an engine that powers it, and seats for one to eight people.\n2. A railway carriage for passengers.\n3. A cable car or funicular railway.\n4. (informal) A stolen vehicle.\n\n**Verb**\n\n1. To transport or drive (someone or something) in a car.\n2. (slang) To steal (a car).\n\n**Examples**\n\n1. We drove to the beach in my new car.\n2. The car was parked illegally.\n3. The car was stolen from the driveway.\n4. The thief was arrested for car theft.\n\n**Synonyms**\n\n* Automobile\n* Vehicle\n* Motor car\n* Coach\n* Saloon\n* Sedan\n* Coupe\n* Hatchback\n* Estate car\n* Station wagon\n* SUV\n* Crossover"]
-#   },
-# ])
-
-#         # Send the user query and receive the response
-#         convo.send_message(user_prompt)
-#         gemini_response=convo.last.text
-#         # format_text = gemini_response.replace("**", "<h2>").replace("\n\n", "<br>").replace("\n", " ").replace("<br><br>", "<br>").replace("</h2>", "</h2><br>")  # Adjusting line breaks and closing tags
-#         print(convo.last.text)
-
-#         return gemini_response
 def get_solutions(pest_name):
     pest = pest_name
     
@@ -182,10 +126,15 @@ def get_solutions(pest_name):
     }
 
     safety_settings = [
-        {
-            "category": "HARM_CATEGORY_HARASSMENT",
-            "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-        },
+            {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "BLOCK_LOW_AND_ABOVE"  # Adjust threshold to allow more responses
+    },
+    {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "BLOCK_LOW_AND_ABOVE"  # Adjust threshold to allow more responses
+    },
+
         
     ]
 
@@ -198,7 +147,8 @@ def get_solutions(pest_name):
     
     for i in range(3):
         # Modify the user prompt slightly for each iteration
-        user_prompt = f"I'm experiencing issues with {pest}. Can you provide solution {i + 1} with this names and 50 word summary to address this pest problem?"
+        user_prompt = f"I'm experiencing issues with {pest}. Can you provide a natural-friendly good solution {i + 1} with its name and this should be without any purches this from shop ,  and a 50-word summary to address this pest problem?"
+        # user_prompt = f"I'm seeking assistance with managing {pest} infestation. Could you kindly provide a  solution {i + 1} , focusing on environmentally friendly methods, to save agricultural world along with a brief 50-word summary? Thank you for your expertise."
 
         # Add previous solutions to the prompt to encourage diversity
         if i > 0:
@@ -255,7 +205,7 @@ def getDetails(pestName):
                                       safety_settings=safety_settings)
 
         # Start a conversation with Gemini using the user prompt
-        user_prompt = f"I'm have as solution {pest}. can you give me clearly step by step how to do this solution"
+        user_prompt = f"I'm have as solution {pest}. can you give me clearly step by step how to do this solution with including examples clearly undersatnable"
         convo = model.start_chat(history=[
   {
     "role": "user",

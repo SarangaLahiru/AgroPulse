@@ -1,7 +1,5 @@
 import React from "react";
-import right_arrow from "../components/images/right-arrow.png";
 import { useStateContext } from "../context/contextProvider";
-import { Link } from "react-router-dom";
 
 function BodyContent() {
   const { setTranslations, translations } = useStateContext();
@@ -25,12 +23,22 @@ function BodyContent() {
         <div className="bg-[#014802] py-4 px-5 mx-3 rounded-md text-white font-medium  lg:text-xl "
         >
           {translations.Home_b1}
+<<<<<<< HEAD
         </div>
       </div>
       </Link>
       
+=======
+        </a>
+      </div>
+
+
+
+>>>>>>> c348e2b5de9f4ae85a79a20a464592ebfaa46740
     </div>
+
   );
 }
+
 
 export default BodyContent;

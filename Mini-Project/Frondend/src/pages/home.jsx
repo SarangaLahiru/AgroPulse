@@ -16,6 +16,7 @@ export default function Home() {
 
   const [data, setDate] = useState({});
   const { translations } = useStateContext();
+  const [loading, setLoading] = useState(false);
 
   const fetchData = async () => {
     try {
