@@ -14,7 +14,8 @@ export default function Login() {
   const idRef = createRef();
   const passwordRef = createRef();
   const { setToken, setUser } = useStateContext();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
