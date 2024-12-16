@@ -29,7 +29,8 @@ export default function Signup() {
       id: idRef.current.value,
       email: emailRef.current.value,
       password: passwordRef.current.value,
-      confirmPassword: confirmPasswordRef.current.value
+      confirmPassword: confirmPasswordRef.current.value,
+      credit: 10
     };
     setLoading(true)
     axiosClient.post('/signup', payload)

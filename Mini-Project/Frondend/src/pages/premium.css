@@ -1,0 +1,35 @@
+/* PremiumPlans.css */
+
+.premium-plans-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.plan-card {
+  border: 2px solid #E5E7EB;
+  /* Adjust as needed */
+}
+
+.plan-card h3 {
+  color: inherit;
+}
+
+.plan-card p {
+  color: #6B7280;
+}
+
+.plan-card ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.plan-card li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.plan-card button {
+  margin-top: 10px;
+}

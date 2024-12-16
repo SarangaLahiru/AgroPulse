@@ -10,6 +10,7 @@ import { Card } from 'flowbite-react';
 import React, { useRef, useState } from 'react';
 import FadeIn from 'react-fade-in';
 import { FourSquare } from 'react-loading-indicators';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import axioaClient from '../axios-Client';
@@ -34,7 +35,7 @@ export default function PestImageUpload() {
     const { translations } = useStateContext();
     const [openBox, setOpenBox] = React.useState(false);
     const [openBox1, setOpenBox1] = React.useState(false);
-    const [openBox2, setOpenBox2] = React.useState(true);
+    const [openBox2, setOpenBox2] = React.useState(false);
     const [url, setUrl] = useState('');
     const [loading, setLoading] = useState(false);
     const [solution1, setSolution1] = useState('')
@@ -43,9 +44,29 @@ export default function PestImageUpload() {
     const [sinhalasolution1, sinhalasetSolution1] = useState('')
     const [sinhalasolution2, sinhalasetSolution2] = useState('')
     const [sinhalasolution3, sinhalasetSolution3] = useState('')
+    const [credit, setCredit] = useState(0);
     const [solutionDis, setSolutionDis] = useState('')
+    const [isDialogOpen, setIsDialogOpen] = React.useState(false);
+    const navigate = useNavigate();
 
+    React.useEffect(() => {
 
+        const user = JSON.parse(localStorage.getItem('USER'));
+        if (user && user.credit) {
+            setCredit(user.credit);
+            console.log(credit)
+            // localStorage.setItem('USER', JSON.stringify(user));
+        }
+    }), [];
+    const updateCreditInDB = async (newCredit) => {
+        try {
+            const user = JSON.parse(localStorage.getItem('USER'));
+            await axioaClient.post('/update_credit', { id: user.id, credit: newCredit });
+            console.log('Credit updated in DB');
+        } catch (error) {
+            console.error('Error updating credit:', error);
+        }
+    };
     const handleFileChange = (e) => {
         const uploadedFile = e.target.files[0];
         setFile(uploadedFile);
@@ -127,76 +148,106 @@ export default function PestImageUpload() {
             formData.append('image', blob, 'snapshot.png');
         }
         setLoading(true)
-        axioaClient.post('/detection', formData)
 
-            .then(response => {
+        const user = JSON.parse(localStorage.getItem('USER'));
 
-                console.log('Detection result:', response.data);
-                // Handle detection result if needed
-                setPest(response.data.result)
+        if (user.credit > 0) {
 
-                const details = response.data.details
-                    .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // Replace **text** with bold text
-                    .replace(/\*/g, '<br><br>');
-                const solution1 = response.data.solution1
-                    .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // Replace **text** with bold text
-                    .replace(/\*/g, '<br><br>');
-                const solution2 = response.data.solution2
-                    .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // Replace **text** with bold text
-                    .replace(/\*/g, '<br><br>');
-                const solution3 = response.data.solution3
-                    .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // Replace **text** with bold text
-                    .replace(/\*/g, '<br><br>');
+            axioaClient.post('/detection', formData)
 
-                setDetails(details)
-                console.log(details)
-                setSolution1(solution1)
-                setSolution2(solution2)
-                setSolution3(solution3)
-                if (translations.language == "si") {
-                    translateText(details);
-                    translateText1(solution1);
-                    translateText2(solution2);
-                    translateText3(solution3);
-                }
+                .then(response => {
+                    const user = JSON.parse(localStorage.getItem('USER'));
+
+                    if (user) {
+                        user.credit -= 1;
 
 
-                const prediction = response.data.result;
 
-                setLoading(false)
+                        // setCredit(user.credit);
+                        localStorage.setItem('USER', JSON.stringify(user));
 
-                Swal.fire({
-                    title: prediction,
-                    icon: "info",
-                    text: "This is your pest name",
-                    showCancelButton: true,
-                    confirmButtonText: "See more Details",
-                    customClass: {
-                        container: 'my-custom-modal-class'   // Custom class for the deny button
                     }
-                }).then((result) => {
-                    /* Read more about isConfirmed, isDenied below */
-                    if (result.isConfirmed) {
-                        setOpenBox(true)
-                    } else if (result.isDenied) {
-                        Swal.fire("Changes are not saved", "", "info");
+
+                    console.log('Detection result:', response.data);
+                    // Handle detection result if needed
+                    setPest(response.data.result)
+
+                    const details = response.data.details
+                        .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // Replace **text** with bold text
+                        .replace(/\*/g, '<br><br>');
+                    const solution1 = response.data.solution1
+                        .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // Replace **text** with bold text
+                        .replace(/\*/g, '<br><br>');
+                    const solution2 = response.data.solution2
+                        .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // Replace **text** with bold text
+                        .replace(/\*/g, '<br><br>');
+                    const solution3 = response.data.solution3
+                        .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // Replace **text** with bold text
+                        .replace(/\*/g, '<br><br>');
+
+                    setDetails(details)
+                    console.log(details)
+                    setSolution1(solution1)
+                    setSolution2(solution2)
+                    setSolution3(solution3)
+                    if (translations.language == "si") {
+                        translateText(details);
+                        translateText1(solution1);
+                        translateText2(solution2);
+                        translateText3(solution3);
                     }
+
+
+                    const prediction = response.data.result;
+                    updateCreditInDB(user.credit);
+
+                    setLoading(false)
+
+                    Swal.fire({
+                        title: prediction,
+                        icon: "info",
+                        text: "This is your pest name",
+                        showCancelButton: true,
+                        confirmButtonText: "See more Details",
+                        customClass: {
+                            container: 'my-custom-modal-class'   // Custom class for the deny button
+                        }
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                            setOpenBox(true);
+
+
+                        } else if (result.isDenied) {
+                            Swal.fire("Changes are not saved", "", "info");
+                        }
+                    });
+                })
+
+
+
+                .catch(error => {
+                    console.error('Error uploading image:', error);
+                    setLoading(false)
+                    Swal.fire({
+                        title: "Internal server Error",
+                        icon: "error",
+                        text: "Try again later",
+                        showCancelButton: true,
+                        customClass: {
+                            container: 'my-custom-modal-class'   // Custom class for the deny button
+                        }
+                    });
+
                 });
-            })
-            .catch(error => {
-                console.error('Error uploading image:', error);
-                setLoading(false)
-                Swal.fire({
-                    title: "Internal server Error",
-                    icon: "error",
-                    text: "Try again later",
-                    showCancelButton: true,
-                    customClass: {
-                        container: 'my-custom-modal-class'   // Custom class for the deny button
-                    }
-                });
+        }
+        else {
 
-            });
+            setLoading(false)
+            setCredit(0);
+            localStorage.setItem('USER', JSON.stringify(user));
+            setIsDialogOpen(true)
+        }
     };
 
     const handleBack = () => {
@@ -586,7 +637,7 @@ export default function PestImageUpload() {
                                         <p className='max-sm:text-sm'>Environmentally healthy pest solutions offer eco-conscious methods to manage infestations without harming ecosystems. By utilizing natural deterrents and sustainable practices, these solutions prioritize the health of both the environment and inhabitants.</p>
                                         <h2 className=' text-lg'>Solutions for {pest}</h2>
                                         <div className='left-0 flex max-sm:flex-wrap w-full absolute m-auto'>
-                                            <Card sx={{ maxWidth: '345px', backgroundColor: "red", marginLeft: "10px" }} className='m-10'>
+                                            <Card sx={{ Width: '345px', backgroundColor: "red", marginLeft: "10px" }} className='m-10'>
                                                 <CardMedia
                                                     component="img"
                                                     alt="green iguana"
@@ -606,7 +657,7 @@ export default function PestImageUpload() {
                                                     <Button color='success' size="small" onClick={() => getSolutionDetails(solution1)}>Learn More</Button>
                                                 </CardActions>
                                             </Card>
-                                            <Card sx={{ maxWidth: '345px', backgroundColor: "red", marginLeft: "10px" }} className='m-10'>
+                                            <Card sx={{ Width: '345px', backgroundColor: "red", marginLeft: "10px" }} className='m-10'>
                                                 <CardMedia
                                                     component="img"
                                                     alt="green iguana"
@@ -626,7 +677,7 @@ export default function PestImageUpload() {
                                                     <Button color='success' size="small" onClick={() => getSolutionDetails(solution2)}>Learn More</Button>
                                                 </CardActions>
                                             </Card>
-                                            <Card sx={{ maxWidth: '345px', backgroundColor: "red", marginLeft: "10px" }} className='m-10'>
+                                            <Card sx={{ Width: '345px', backgroundColor: "red", marginLeft: "10px" }} className='m-10'>
                                                 <CardMedia
                                                     component="img"
                                                     alt="green iguana"
@@ -706,6 +757,47 @@ export default function PestImageUpload() {
 
 
             }
+            {isDialogOpen && (
+                <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+                    <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+                        <div className="flex items-center">
+                            <div className="flex-shrink-0 mr-4">
+                                <svg
+                                    className="h-12 w-12 text-yellow-500"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v2h-2zm0 4h2v6h-2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-medium text-gray-900">Credit Limit</h3>
+                                <div className="mt-2 text-sm text-gray-600">
+                                    Your credit limit is <span className="text-yellow-500 font-bold">{credit}</span>.
+                                </div>
+                                <div className="mt-2 text-sm text-gray-600">
+                                    Upgrade to <span className="text-yellow-500 font-bold">Premiere Plan</span> for more benefits!
+                                </div>
+                            </div>
+                        </div>
+                        <div className="mt-6 flex justify-between">
+                            <button
+                                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75"
+                                onClick={() => setIsDialogOpen(false)}
+                            >
+                                OK
+                            </button>
+                            <button
+                                className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75"
+                                onClick={() => alert('Go Premiere Plan')}
+                            >
+                                Go Premiere Plan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
         </>
     );

@@ -18,11 +18,12 @@ import Select from '@mui/material/Select';
 import axios from 'axios';
 import * as React from 'react';
 import FadeIn from 'react-fade-in';
+import { FaArrowUp, FaCog, FaCoins, FaEnvelope, FaIdBadge, FaQuestionCircle, FaSignOutAlt, FaUser } from 'react-icons/fa';
 import { IoCall, IoDocumentText, IoDownload, IoHelpCircleOutline, IoHome, IoInformationCircleOutline, IoLanguage, IoSettings } from "react-icons/io5";
 import { RiMenu2Fill } from "react-icons/ri";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { FourSquare } from 'react-loading-indicators';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useStateContext } from '../../context/contextProvider';
 import './header.css';
 
@@ -35,14 +36,29 @@ export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const { setToken, setUser, user } = useStateContext();
+  const [credit, setCredit] = React.useState(0);
   const location = useLocation();
   // const [translations, setTranslations] = React.useState({});
   const { setTranslations, translations } = useStateContext();
+  const [isDialogOpen, setIsDialogOpen] = React.useState(true);
+  const navigate = useNavigate();
 
 
-  // Fetch translations when the component mounts or language changes
+
+
+
+  React.useEffect(() => {
+
+    const user = JSON.parse(localStorage.getItem('USER'));
+    if (user) {
+      setCredit(user.credit);
+      // localStorage.setItem('USER', JSON.stringify(user));
+    }
+  }), [];
+
   React.useEffect(() => {
     fetchTranslations();
+
   }, [selectedLanguage]);
 
   const fetchTranslations = () => {
@@ -187,13 +203,16 @@ export default function Header() {
 
   };
   const menuId = 'primary-search-account-menu';
+  const handleUpgradePlan = () => {
+    navigate('/pro')
+    handleMenuClose();
+  }
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: 'top',
         horizontal: 'right',
-
       }}
       id={menuId}
       keepMounted
@@ -205,25 +224,54 @@ export default function Header() {
       onClose={handleMenuClose}
       PaperProps={{
         style: {
-          maxHeight: 300, // Adjust the maximum height as needed
-          width: 220,    // Adjust the width as needed
+          maxHeight: 380,
+          width: 280,
           marginTop: 70,
           marginLeft: 15,
-
         },
       }}
-
     >
-      <MenuItem onClick={handleMenuClose}>{user.name}</MenuItem>
-      <MenuItem onClick={handleMenuClose}>{user.email && user.email}</MenuItem>
-      <MenuItem onClick={handleMenuClose}>{user.id && user.id}</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <FaUser className="mr-2" /> {user.name}
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <FaEnvelope className="mr-2" /> {user.email && user.email}
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <FaIdBadge className="mr-2" /> {user.id && user.id}
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <FaCoins className="mr-2" /> Credit: {credit}
+      </MenuItem>
       <Divider />
-      <MenuItem onClick={handleMenuClose}>Setting</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Help</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <FaCog className="mr-2" /> Settings
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <FaQuestionCircle className="mr-2" /> Help
+      </MenuItem>
+      <MenuItem onClick={handleUpgradePlan} style={{ backgroundColor: '#f0f4ff', borderRadius: '4px', margin: '5px 0', padding: '10px 15px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <FaArrowUp className="mr-2" style={{ color: '#007bff' }} />
+          <span style={{ fontWeight: 'bold', color: '#007bff' }}>Upgrade Plan</span>
+        </div>
+        <span style={{ fontSize: '9px', color: '#555', marginTop: '4px', width: "50px" }}>
+          Unlock premium features and increase your credit limit.
+        </span>
+      </MenuItem>
       <Divider />
-      <MenuItem onClick={handleLogout}>Sign Out</MenuItem>
-    </Menu>
+      <MenuItem onClick={handleLogout}>
+        <FaSignOutAlt className="mr-2" /> Sign Out
+      </MenuItem>
+    </Menu >
   );
+
+  const pro = (e) => {
+    setIsDialogOpen(false);
+    // e.preventDefault();
+
+    navigate('/pro');
+  }
 
 
 
@@ -327,6 +375,50 @@ export default function Header() {
           {renderMenu}
         </div>
       }
+      {isDialogOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform transition-all duration-300 ease-in-out scale-100 hover:scale-105">
+            <div className="flex items-center mb-4">
+              <div className="flex-shrink-0 mr-4">
+                <svg
+                  className="h-12 w-12 text-green-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v2h-2zm0 4h2v6h-2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-lg font-medium text-gray-900">Credit Limit</h3>
+                <div className="mt-2 text-sm text-gray-600">
+                  Your credit limit is <span className="text-green-500 font-bold">{credit}</span>.
+                </div>
+                <div className="mt-2 text-sm text-gray-600">
+                  Upgrade to <span className="text-green-500 font-bold">Premiere Plan</span> for more benefits!
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 flex justify-between">
+              <button
+                className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition-transform duration-200 ease-in-out transform hover:scale-105"
+                onClick={() => setIsDialogOpen(false)}
+              >
+                OK
+              </button>
+              <button
+                className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 transition-transform duration-200 ease-in-out transform hover:scale-105"
+                onClick={pro}
+              >
+                Go Premiere Plan
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+
+
     </>
   );
 }

@@ -66,6 +66,29 @@ def extract_name_and_mobile(ocr_text):
     
     return name, mobile
 
+@app.route('/api/update_credit', methods=['POST'])
+def update_credit():
+    user_data = request.json
+    id = user_data['id']
+    new_credit = user_data['credit']
+
+    if not id or new_credit is None:
+        return jsonify({"error": "Invalid data"}), 400
+
+    try:
+        result = users_collection.update_one(
+            {"id": id},
+            {"$set": {"credit": new_credit}}
+        )
+
+        if result.modified_count == 1:
+            return jsonify({"status": "success"}), 200
+        else:
+            return jsonify({"error": "User not found or credit not updated"}), 404
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 @app.route('/api/signup', methods=['POST'])
 def signup():
@@ -105,7 +128,8 @@ def signup():
                      'user': {
             'id': user_data['id'],
             'name': user_data['name'],
-            'email': user_data['email']
+            'email': user_data['email'],
+            'credit': user_data['credit']
             # Add more user data fields as needed
         }
                     
@@ -136,7 +160,8 @@ def signin():
                     'user': {
             'id': user['id'],
             'name': user['name'],
-            'email': user['email']
+            'email': user['email'],
+            'credit': user['credit']
             # Add more user data fields as needed
         }
                     }), 200
