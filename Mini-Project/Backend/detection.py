@@ -7,6 +7,7 @@ import google.generativeai as genai
 # Load the trained machine learning model
 model = load_model('17_pest_model.h5')
 
+
 # Define class names
 class_names = ['Black hairy',
  'Cutworm',

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { useStateContext } from "../context/contextProvider";
 
 function BodyContent() {
@@ -18,17 +19,15 @@ function BodyContent() {
       <p className="mt-6 text-md text-center text-[#1d5c1e] max-w-6xl font-medium  sm:text-sm lg:text-lg lg:leading-[1.45rem]  ">
         {translations.Home_p2}
       </p>
+      <Link to='/detection'>
       <div className="flex justify-center my-10">
-        <a
-          href="#"
-          className="bg-[#014802] py-4 px-5 mx-3 rounded-md text-white font-medium  lg:text-xl "
+        <div className="bg-[#014802] py-4 px-5 mx-3 rounded-md text-white font-medium  lg:text-xl "
         >
           {translations.Home_b1}
-        </a>
+        </div>
       </div>
-
-
-
+      </Link>
+      
     </div>
 
   );

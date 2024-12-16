@@ -63,6 +63,12 @@ translations = {
         'input_message':'Enter Your Message',
 
         #aboutus - translation
+        'header1':'About Us',
+        'header2':'Learn more about our journey and mission.',
+        'bottom_header1':'AgroPulse',
+        'bottom_header2':'Empowering Farmers with Innovative Pest Management Solutions',
+
+
         'itemsData_Title1':'Our Mission',
         'itemsData_Title2':'Our Vision',
         'itemsData_Title3':'Our Goal',
@@ -72,6 +78,16 @@ translations = {
         'itemsData_Details2':"At AgroPulse, our vision is to transform agriculture through innovative pest management solutions, ensuring a sustainable and prosperous future for farmers worldwide.",
 
         'itemsData_Details3':"At AgroPulse, our goal is to develop a user-friendly web application that leverages machine learning to accurately detect pests and provide effective solutions. We aim to support farmers in protecting their crops, reducing losses, and improving yields.",
+
+        'title1':'Our Technology',
+        'title2':'Our Features',
+        'title3':'Our Impact',
+        'title4':'Our Goals',
+
+        'subtitle1':'AgroPulse utilizes state-of-the-art technologies to provide farmers with reliable and precise tools for pest management. Our platform integrates:',
+        'subtitle2':'Currently, AgroPulse offers two key features:',
+        'subtitle3':'AgroPulse is dedicated to making a significant impact on the agricultural community. Our application helps farmers:',
+        'subtitle4':'We are committed to continuous innovation and expansion. Our future plans include:groPulse is dedicated to making a significant impact on the agricultural community. Our application helps farmers:',
 
         'technology_Label1':'Machine Learning : ',
         'technology_Label2':'Web Development : ',
@@ -156,7 +172,58 @@ translations = {
 
         'Support_act5':'AgroPulse ஐ மேம்படுத்துவதற்கான கருத்துக்களை அல்லது பரிந்துரைகளை நான் எவ்வாறு வழங்குவது?',
         'Support_acc5':'AgroPulse ஐ மேம்படுத்துவதற்கான உங்கள் கருத்தை நாங்கள் வரவேற்கிறோம் மற்றும் பரிந்துரைகளை வரவேற்கிறோம். ஆதரவுப் பக்கத்தில் உள்ள கருத்துப் படிவத்தை நிரப்புவதன் மூலம் அல்லது எங்கள் ஆதரவுக் குழுவை நேரடியாகத் தொடர்புகொள்வதன் மூலம் உங்கள் கருத்தைப் பகிரலாம். உங்கள் உள்ளீட்டைப் பாராட்டுகிறோம், மேலும் அனைத்துப் பயனர்களுக்கும் AgroPulseஐ சிறந்ததாக்க அதைப் பயன்படுத்துகிறோம்',
-        'Support_btn':'மேலும்'
+        'Support_btn':'மேலும்',
+
+        #aboutus - translation
+        'header1':'நாங்கள் பற்றி',
+        'header2':'எங்கள் பயணம் மற்றும் பணி பற்றி மேலும் அறிக.',
+        'bottom_header1':'AgroPulse',
+        'bottom_header2':'புதுமையான பூச்சி மேலாண்மை தீர்வுகளுடன் விவசாயிகளை மேம்படுத்துதல்',
+
+
+        'itemsData_Title1':'எங்கள் நோக்கம்',
+        'itemsData_Title2':'எமது நோக்கம்',
+        'itemsData_Title3':'எங்கள் இலக்கு',
+
+        'itemsData_Details1':"AgroPulse இல் உள்ள எங்கள் நோக்கம், புதுமையான பூச்சி மேலாண்மை தீர்வுகள் மூலம் விவசாயிகளை மேம்படுத்துவதாகும். விவசாய உற்பத்தித்திறன் மற்றும் நிலைத்தன்மையை அதிகரிக்க மேம்பட்ட தொழில்நுட்பத்தை வழங்குவதன் மூலம் பூச்சித் தாக்குதலை திறம்பட கண்டறிந்து தடுப்பதை நோக்கமாகக் கொண்டுள்ளோம்.",
+
+        'itemsData_Details2':"AgroPulse இல் உள்ள எங்கள் பார்வையானது, புதுமையான பூச்சி மேலாண்மை தீர்வுகள் மூலம் விவசாயத்தை மாற்றியமைப்பதாகும், இது உலகளாவிய விவசாயிகளுக்கு நிலையான மற்றும் வளமான எதிர்காலத்தை உறுதி செய்வதாகும்.",
+
+        'itemsData_Details3':"AgroPulse இல், பூச்சிகளைத் துல்லியமாகக் கண்டறிந்து பயனுள்ள தீர்வுகளை வழங்க இயந்திரக் கற்றலைப் பயன்படுத்தும் பயனர் நட்பு இணைய பயன்பாட்டை உருவாக்குவதே எங்கள் குறிக்கோள். விவசாயிகள் தங்கள் பயிர்களைப் பாதுகாத்து, இழப்புகளைக் குறைத்து, விளைச்சலை மேம்படுத்த உதவுவதே எங்கள் நோக்கம்.",
+
+        'technology_Label1':'இயந்திர வழி கற்றல் (Machine Learning) : ',
+        'technology_Label2':'வலை அபிவிருத்தி சேவைகள் (Web Development) : ',
+        'technology_Label3':'தரவுத்தள மேலாண்மை (Database Management) : ',
+        'technology_Label4':'செயற்கை நுண்ணறிவு தொழில்நுட்பம் (Artificial Intelligence) : ',
+
+        'title1':'எங்கள் தொழில்நுட்பம்',
+        'title2':'எங்கள் அம்சங்கள்',
+        'title3':'எங்கள் செல்வாக்கு',
+        'title4':'எங்கள் இலக்குகள்',
+
+        'subtitle1':'பூச்சி மேலாண்மைக்கான நம்பகமான மற்றும் துல்லியமான கருவிகளை விவசாயிகளுக்கு வழங்க AgroPulse அதிநவீன தொழில்நுட்பங்களைப் பயன்படுத்துகிறது. எங்கள் தளம் ஒருங்கிணைக்கிறது:',
+        'subtitle2':'தற்போது, ​​AgroPulse இரண்டு முக்கிய அம்சங்களை வழங்குகிறது:',
+        'subtitle3':'விவசாய சமூகத்தில் குறிப்பிடத்தக்க தாக்கத்தை ஏற்படுத்த ​​AgroPulse உறுதிபூண்டுள்ளது. எங்கள் பயன்பாடு விவசாயிகளுக்கு உதவுகிறது:',
+        'subtitle4':'தொடர்ச்சியான கண்டுபிடிப்பு மற்றும் விரிவாக்கத்திற்கு நாங்கள் கடமைப்பட்டுள்ளோம். எங்கள் எதிர்கால திட்டங்களில் பின்வருவன அடங்கும்: விவசாய சமூகத்தில் குறிப்பிடத்தக்க தாக்கத்தை ஏற்படுத்த AgroPulse உறுதிபூண்டுள்ளது. எங்கள் பயன்பாடு விவசாயிகளுக்கு உதவுகிறது:',
+
+        'technology_Text1':'නිවැරදි පළිබෝධ හඳුනාගැනීම සඳහා TensorFlow සහ Keras සමඟ පුහුණු කරන ලද උසස් Convolutional Neural Networks (CNNs).',
+        'technology_Text2':'පරිශීලක-හිතකාමී අත්දැකීමක් සහතික කරමින්, Flask, HTML/CSS, සහ JavaScript භාවිතයෙන් සංවර්ධනය කරන ලද ශක්තිමත් වෙබ් යෙදුමක්.',
+        'technology_Text3':'පරිශීලක දත්ත සහ පළිබෝධ තොරතුරු සඳහා MongoDB භාවිතයෙන් කාර්යක්ෂම දත්ත ගබඩා කිරීම සහ ලබා ගැනීම.',
+        'technology_Text4':'Gemini AI භාවිතයෙන් වඩාත් සුදුසු ආකාරවලින් හානිකර පළිබෝධ වැළැක්වීම සඳහා වඩාත් සුදුසු විසඳුම් සාදන්න.',
+
+        'features_Label1':'පළිබෝධ හඳුනාගැනීම : ',
+        'features_Label2':'වැළැක්වීම සඳහා විසඳුම් : ',
+
+        'features_Text1':'පරිශීලකයින්ට ඔවුන්ගේ භෝගවල ඇති කෘමීන්ගේ පින්තූර උඩුගත කළ හැකි අතර, අපගේ පද්ධතිය උසස් යන්ත්‍ර ඉගෙනුම් ඇල්ගොරිතම භාවිතයෙන් පළිබෝධකයන් නිවැරදිව හඳුනා ගනී.',
+        'features_Text2':'හඳුනාගත් පළිබෝධකයන් මත පදනම්ව, AgroPulse පළිබෝධ හානි වැළැක්වීම සහ අවම කිරීම සඳහා සුදුසු විසඳුම් සපයයි. පළිබෝධනාශක, ස්වාභාවික පිළියම් සහ පළිබෝධ කළමනාකරණයේ හොඳම භාවිතයන් සඳහා නිර්දේශ මෙයට ඇතුළත් වේ.',
+
+        'impactLabel1':'පළිබෝධ උවදුර නිසා වගා හානි අවම කිරීම.',
+        'impactLabel2':'ඵලදායී පළිබෝධ කළමනාකරණයක් හරහා බෝග අස්වැන්න වැඩි කරන්න.',
+        'impactLabel3':'පරිසර හිතකාමී විසඳුම් ලබා දීමෙන් තිරසාර ගොවිතැන් පිළිවෙත් අනුගමනය කරන්න.',
+
+        'futureGoals_Label1':'අපගේ දත්ත කට්ටලය පුළුල් කිරීමෙන් අපගේ පළිබෝධ හඳුනාගැනීමේ නිරවද්‍යතාවය වැඩි දියුණු කිරීම.',
+        'futureGoals_Label2':'පළිබෝධ නිරීක්ෂණ සහ තත්‍ය කාලීන ඇඟවීම් වැනි නව විශේෂාංග එකතු කිරීම.',
+        'futureGoals_Label3':'අපගේ ප්‍රවේශය සහ බලපෑම පුළුල් කිරීම සඳහා කෘෂිකාර්මික සංවිධාන සමඟ සහයෝගයෙන් කටයුතු කිරීම.',
     },
    
     'සිංහල': {
@@ -222,6 +289,56 @@ translations = {
         'input_message':'ඔබේ පණිවිඩය ඇතුලත් කරන්න',
         'support_p': 'ඔබගේ සහයට',
     
+        #aboutus - translation
+        'header1':'අපි ගැන',
+        'header2':'අපගේ ගමන සහ මෙහෙවර ගැන තව දැනගන්න.',
+        'bottom_header1':'AgroPulse',
+        'bottom_header2':'නව්‍ය පළිබෝධ කළමනාකරණ විසඳුම් සමඟ ගොවීන් සවිබල ගැන්වීම',
+
+
+        'itemsData_Title1':'අපේ මෙහෙයුම',
+        'itemsData_Title2':'අපගේ දැක්ම',
+        'itemsData_Title3':'අපේ ඉලක්කය',
+
+        'itemsData_Details1':"AgroPulse හි අපගේ මෙහෙවර වන්නේ නව්‍ය පළිබෝධ කළමනාකරණ විසඳුම් සමඟ ගොවීන් සවිබල ගැන්වීමයි. කෘෂිකාර්මික ඵලදායිතාව සහ තිරසාරභාවය ඉහළ නැංවීම සඳහා උසස් තාක්ෂණයක් ලබා දීම මගින් පළිබෝධ උවදුර ඵලදායී ලෙස හඳුනා ගැනීම සහ වැළැක්වීම සඳහා අපි අපේක්ෂා කරමු.",
+
+        'itemsData_Details2':"AgroPulse හි අපගේ දැක්ම වන්නේ ලොව පුරා ගොවීන් සඳහා තිරසාර සහ සමෘද්ධිමත් අනාගතයක් සහතික කරමින් නව්‍ය පළිබෝධ කළමනාකරණ විසඳුම් හරහා කෘෂිකර්මාන්තය පරිවර්තනය කිරීමයි.",
+
+        'itemsData_Details3':"AgroPulse හි, අපගේ ඉලක්කය වන්නේ පළිබෝධකයන් නිවැරදිව හඳුනා ගැනීමට සහ ඵලදායී විසඳුම් සැපයීමට යන්ත්‍ර ඉගෙනීම උත්තේජනය කරන පරිශීලක-හිතකාමී වෙබ් යෙදුමක් සංවර්ධනය කිරීමයි. ගොවීන්ට ඔවුන්ගේ බෝග ආරක්ෂා කර ගැනීමට, පාඩු අවම කර ගැනීමට සහ අස්වැන්න වැඩි දියුණු කිරීමට සහාය වීම අපගේ අරමුණයි.",
+
+        'technology_Label1':'යන්ත්‍ර ඉගෙනීම (Machine Learning) : ',
+        'technology_Label2':'වෙබ් සංවර්ධන සේවා (Web Development) : ',
+        'technology_Label3':'දත්ත සමුදා කළමනාකරණය (Database Management) : ',
+        'technology_Label4':'කෘතිම බුද්ධි තාක්ෂණය (Artificial Intelligence) : ',
+
+        'title1':'අපගේ තාක්ෂණය',
+        'title2':'අපගේ විශේෂාංග',
+        'title3':'අපගේ බලපෑම',
+        'title4':'අපේ ඉලක්ක',
+
+        'subtitle1':'AgroPulse පළිබෝධ කළමනාකරණය සඳහා ගොවීන්ට විශ්වාසදායක සහ නිරවද්‍ය මෙවලම් සැපයීම සඳහා අති නවීන තාක්ෂණයන් භාවිතා කරයි. අපගේ වේදිකාව ඒකාබද්ධ කරයි:',
+        'subtitle2':'දැනට, AgroPulse ප්‍රධාන අංග දෙකක් ඉදිරිපත් කරයි:',
+        'subtitle3':'කෘෂිකාර්මික ප්‍රජාවට සැලකිය යුතු බලපෑමක් ඇති කිරීමට AgroPulse කැපවී සිටී. අපගේ යෙදුම ගොවීන්ට උපකාර කරයි:',
+        'subtitle4':'අපි අඛණ්ඩ නවෝත්පාදන සහ ව්යාප්තිය සඳහා කැපවී සිටිමු. අපගේ අනාගත සැලසුම්වලට ඇතුළත් වන්නේ: AgroPulse කෘෂිකාර්මික ප්‍රජාවට සැලකිය යුතු බලපෑමක් ඇති කිරීමට කැපවී සිටී. අපගේ යෙදුම ගොවීන්ට උපකාර කරයි:',
+
+        'technology_Text1':'නිවැරදි පළිබෝධ හඳුනාගැනීම සඳහා TensorFlow සහ Keras සමඟ පුහුණු කරන ලද උසස් Convolutional Neural Networks (CNNs).',
+        'technology_Text2':'පරිශීලක-හිතකාමී අත්දැකීමක් සහතික කරමින්, Flask, HTML/CSS, සහ JavaScript භාවිතයෙන් සංවර්ධනය කරන ලද ශක්තිමත් වෙබ් යෙදුමක්.',
+        'technology_Text3':'පරිශීලක දත්ත සහ පළිබෝධ තොරතුරු සඳහා MongoDB භාවිතයෙන් කාර්යක්ෂම දත්ත ගබඩා කිරීම සහ ලබා ගැනීම.',
+        'technology_Text4':'Gemini AI භාවිතයෙන් වඩාත් සුදුසු ආකාරවලින් හානිකර පළිබෝධ වැළැක්වීම සඳහා වඩාත් සුදුසු විසඳුම් සාදන්න.',
+
+        'features_Label1':'පළිබෝධ හඳුනාගැනීම : ',
+        'features_Label2':'වැළැක්වීම සඳහා විසඳුම් : ',
+
+        'features_Text1':'පරිශීලකයින්ට ඔවුන්ගේ භෝගවල ඇති කෘමීන්ගේ පින්තූර උඩුගත කළ හැකි අතර, අපගේ පද්ධතිය උසස් යන්ත්‍ර ඉගෙනුම් ඇල්ගොරිතම භාවිතයෙන් පළිබෝධකයන් නිවැරදිව හඳුනා ගනී.',
+        'features_Text2':'හඳුනාගත් පළිබෝධකයන් මත පදනම්ව, AgroPulse පළිබෝධ හානි වැළැක්වීම සහ අවම කිරීම සඳහා සුදුසු විසඳුම් සපයයි. පළිබෝධනාශක, ස්වාභාවික පිළියම් සහ පළිබෝධ කළමනාකරණයේ හොඳම භාවිතයන් සඳහා නිර්දේශ මෙයට ඇතුළත් වේ.',
+
+        'impactLabel1':'පළිබෝධ උවදුර නිසා වගා හානි අවම කිරීම.',
+        'impactLabel2':'ඵලදායී පළිබෝධ කළමනාකරණයක් හරහා බෝග අස්වැන්න වැඩි කරන්න.',
+        'impactLabel3':'පරිසර හිතකාමී විසඳුම් ලබා දීමෙන් තිරසාර ගොවිතැන් පිළිවෙත් අනුගමනය කරන්න.',
+
+        'futureGoals_Label1':'අපගේ දත්ත කට්ටලය පුළුල් කිරීමෙන් අපගේ පළිබෝධ හඳුනාගැනීමේ නිරවද්‍යතාවය වැඩි දියුණු කිරීම.',
+        'futureGoals_Label2':'පළිබෝධ නිරීක්ෂණ සහ තත්‍ය කාලීන ඇඟවීම් වැනි නව විශේෂාංග එකතු කිරීම.',
+        'futureGoals_Label3':'අපගේ ප්‍රවේශය සහ බලපෑම පුළුල් කිරීම සඳහා කෘෂිකාර්මික සංවිධාන සමඟ සහයෝගයෙන් කටයුතු කිරීම.',
 
     }
     }

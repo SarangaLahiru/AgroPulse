@@ -55,8 +55,8 @@ function AboutUs() {
         <div className="heroImg relative">
           <img src={ImageOne} alt="About Us Cover" className="h-auto w-full object-cover" />
           <div className="content absolute top-0 left-0 right-0 flex flex-col items-center justify-start max-sm:justify-center pt-20 max-sm:pt-0 lg:pt-10 p-4 text-white h-full">
-            <h1 className="text-[36px] md:text-[46px] xl:text-[56px] font-bold text-shadow-lg" data-aos='fade-up' data-aos-duration='4000'>About Us</h1>
-            <p className="mt-2 text-center text-[14px] md:text-[16px] xl:text-[24px] text-shadow-sm" data-aos='fade-up' data-aos-duration='4000'>Learn more about our journey and mission.</p>
+            <h1 className="text-[36px] md:text-[46px] xl:text-[56px] font-bold text-shadow-lg" data-aos='fade-up' data-aos-duration='4000'>{translations.header1}</h1> 
+            <p className="mt-2 text-center text-[14px] md:text-[16px] xl:text-[24px] text-shadow-sm" data-aos='fade-up' data-aos-duration='4000'>{translations.header2}</p>
 
             <div className="container mx-auto p-4 flex justify-around flex-wrap max-lg:hidden lg:flex-nowrap lg:gap-10 lg:pt-0 cursor-pointer" data-aos='fade-up' data-aos-duration='3000'>
               {itemsData.map((item, index) => (
@@ -72,8 +72,8 @@ function AboutUs() {
             </button>
 
             <div className="hiddenText text-center max-xl:hidden" data-aos='fade-up' data-aos-duration='3000'>
-              <h1 className='mt-10 text-[50px] font-[600] text-shadow-lg'>AgroPulse</h1>
-              <p className="mt-2 text-[24px]">Empowering Farmers with Innovative Pest Management Solutions</p>
+              <h1 className='mt-10 text-[50px] font-[600] text-shadow-lg'>{translations.bottom_header1}</h1>
+              <p className="mt-2 text-[24px]">{translations.bottom_header2}</p>
             </div>
 
           </div>
@@ -90,32 +90,32 @@ function AboutUs() {
         <div className=''>
         <div data-aos='fade-up'>
           <Section
-            title="Our Technology"
-            subtitle="AgroPulse utilizes state-of-the-art technologies to provide farmers with reliable and precise tools for pest management. Our platform integrates:"
+            title={translations.title1}
+            subtitle={translations.subtitle1}
             items={technologyItems}
           />
         </div>
 
         <div data-aos='fade-up'>
           <Section 
-            title="Our Features"
-            subtitle="Currently, AgroPulse offers two key features:"
+            title={translations.title2}
+            subtitle={translations.subtitle2}
             items={featuresItems}
           />
         </div>
 
         <div data-aos='fade-up'>
           <Section 
-            title="Our Impact"
-            subtitle="AgroPulse is dedicated to making a significant impact on the agricultural community. Our application helps farmers:"
+            title={translations.title3}
+            subtitle={translations.subtitle3}
             items={impactItems}
           />
         </div>
 
         <div data-aos='fade-up'>
           <Section 
-            title="Our Goals"
-            subtitle="We are committed to continuous innovation and expansion. Our future plans include:groPulse is dedicated to making a significant impact on the agricultural community. Our application helps farmers:"
+            title={translations.title4}
+            subtitle={translations.subtitle4}
             items={futureGoalsItems}
           />
         </div>
